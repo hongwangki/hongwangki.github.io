@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>홍왕기 · Backend Developer</title>
+<meta name="description" content="협업을 우선시하며 Java·Spring 기반으로 안정적인 서버를 설계하는 백엔드 개발자 홍왕기의 포트폴리오">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+/* ---------- HERO ---------- */
+.hero{position:relative;padding:clamp(150px,18vw,210px) 0 clamp(70px,9vw,110px);overflow:hidden;}
+.hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none;}
+.hero-bg .blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;}
+.hero-bg .b1{width:520px;height:520px;background:radial-gradient(circle,#bfe5fb,transparent 65%);top:-160px;right:-120px;}
+.hero-bg .b2{width:420px;height:420px;background:radial-gradient(circle,#e3f3fd,transparent 65%);bottom:-180px;left:-120px;opacity:.8;}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.25fr .85fr;gap:clamp(36px,5vw,72px);align-items:center;}
+.hero h1{font-size:clamp(48px,8.6vw,108px);margin:22px 0 26px;}
+.hero h1 .l2{color:var(--ink);}
+.hero h1 .ko{display:block;font-family:var(--sans);font-size:clamp(20px,3vw,34px);font-weight:700;letter-spacing:-.03em;color:var(--ink-2);margin-top:18px;line-height:1.3;}
+.hero .lead{max-width:520px;margin-bottom:34px;}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px;}
+.contact-row{display:flex;flex-wrap:wrap;gap:10px 26px;font-family:var(--mono);font-size:13.5px;color:var(--ink-3);}
+.contact-row a{display:inline-flex;align-items:center;gap:8px;transition:color .2s;}
+.contact-row a:hover{color:var(--sky-600);}
+.contact-row svg{width:15px;height:15px;}
+
+/* profile card */
+.profile-card{position:relative;}
+.profile-frame{
+  position:relative;background:var(--grad-soft);border:1px solid var(--sky-200);
+  border-radius:var(--r-xl);padding:18px;box-shadow:var(--shadow-lg);
+}
+.profile-frame .profile-img{
+  width:100%;aspect-ratio:4/5;display:block;
+  border-radius:var(--r-lg);object-fit:cover;object-position:center top;
+}
+.profile-meta{display:flex;justify-content:space-between;align-items:center;padding:16px 8px 6px;}
+.profile-meta .nm{font-weight:700;letter-spacing:-.02em;}
+.profile-meta .nm small{display:block;font-family:var(--mono);font-size:12px;color:var(--ink-3);font-weight:500;letter-spacing:.02em;}
+.profile-meta .status{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:12px;color:var(--sky-700);background:#fff;border:1px solid var(--sky-200);padding:6px 12px;border-radius:99px;}
+.profile-meta .status .pulse{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 0 rgba(34,197,94,.5);animation:pulse 2s infinite;}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.5);}70%{box-shadow:0 0 0 8px rgba(34,197,94,0);}100%{box-shadow:0 0 0 0 rgba(34,197,94,0);}}
+.float-chip{position:absolute;background:#fff;border:1px solid var(--line-2);border-radius:14px;padding:10px 15px;box-shadow:var(--shadow-md);font-family:var(--mono);font-size:13px;font-weight:600;display:flex;align-items:center;gap:9px;}
+.float-chip .d{width:9px;height:9px;border-radius:3px;}
+.fc1{top:30px;left:-34px;animation:floaty 5s ease-in-out infinite;}
+.fc2{bottom:90px;right:-38px;animation:floaty 6s ease-in-out infinite .8s;}
+.fc3{bottom:18px;left:-22px;animation:floaty 5.5s ease-in-out infinite .4s;}
+@keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+@media(max-width:920px){
+  .hero-grid{grid-template-columns:1fr;gap:48px;}
+  .profile-card{max-width:420px;margin:0 auto;}
+  .float-chip.fc1{left:-12px;} .float-chip.fc2{right:-12px;} .float-chip.fc3{left:-6px;}
+}
+
+/* tech marquee */
+.techstrip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-tint);padding:22px 0;overflow:hidden;}
+.marquee{display:flex;gap:54px;white-space:nowrap;width:max-content;animation:scrollx 26s linear infinite;}
+.marquee span{font-family:var(--grotesk);font-weight:600;font-size:22px;color:var(--ink-3);letter-spacing:-.02em;display:inline-flex;align-items:center;gap:54px;}
+.marquee span::after{content:"◆";color:var(--sky-300);font-size:11px;}
+@keyframes scrollx{to{transform:translateX(-50%);}}
+
+/* work cards */
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+@media(max-width:900px){.work-grid{grid-template-columns:1fr;}}
+.work{
+  display:block;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:30px 28px 26px;box-shadow:var(--shadow-sm);position:relative;overflow:hidden;
+  transition:transform .35s var(--ease),box-shadow .35s,border-color .35s;
+}
+.work::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease);}
+.work:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--sky-200);}
+.work:hover::before{transform:scaleX(1);}
+.work .wno{font-family:var(--grotesk);font-size:14px;font-weight:700;color:var(--sky-400);letter-spacing:.05em;}
+.work h3{font-size:25px;margin:14px 0 10px;letter-spacing:-.025em;}
+.work .wdesc{color:var(--ink-2);font-size:15px;line-height:1.65;min-height:48px;}
+.work .wtags{display:flex;flex-wrap:wrap;gap:7px;margin:18px 0 22px;}
+.work .wtags i{font-family:var(--mono);font-style:normal;font-size:12px;color:var(--sky-700);background:var(--sky-50);border:1px solid var(--sky-200);padding:4px 10px;border-radius:7px;}
+.work .go{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;color:var(--ink);transition:gap .25s,color .25s;}
+.work:hover .go{gap:14px;color:var(--sky-600);}
+.work .go svg{width:16px;height:16px;}
+
+/* strengths */
+.str-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+@media(max-width:760px){.str-grid{grid-template-columns:1fr;}}
+.str{display:flex;gap:18px;padding:28px;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);transition:transform .3s,box-shadow .3s;}
+.str:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
+.str .si{width:48px;height:48px;flex:none;border-radius:13px;background:var(--sky-50);border:1px solid var(--sky-200);display:grid;place-items:center;color:var(--sky-600);}
+.str .si svg{width:23px;height:23px;}
+.str h4{font-size:17px;margin-bottom:6px;letter-spacing:-.02em;}
+.str p{color:var(--ink-2);font-size:14.5px;line-height:1.6;}
+</style>
+</head>
+<body>
+
+<header class="hero" data-screen-label="홈 히어로">
+  <div class="hero-bg"><span class="blob b1"></span><span class="blob b2"></span></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow reveal">// BACKEND DEVELOPER</span>
+      <h1 class="display reveal d1">
+        <span class="grad-text">Hong</span><br>
+        <span class="l2">Wang Ki</span>
+        <span class="ko">안정적인 서버를 설계하는 <span class="grad-text">백엔드 개발자</span></span>
+      </h1>
+      <p class="lead reveal d2">협업을 우선시하며 <b>Java · Spring</b> 기반으로 트래픽을 견디는 서버를 설계합니다. 쿼리 튜닝과 동시성 처리, 문제의 원인을 끝까지 파고드는 분석으로 성능을 증명해 왔습니다.</p>
+      <div class="hero-cta reveal d3">
+        <a class="btn btn-primary" href="html/teenple.html">프로젝트 보기
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="html/career.html">경력 살펴보기</a>
+      </div>
+      <div class="contact-row reveal d4">
+        <a href="https://github.com/hongwangki" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+          github.com/hongwangki</a>
+        <a href="mailto:leejd8130@naver.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2.5"/><path d="m3 6 9 6 9-6"/></svg>
+          leejd8130@naver.com</a>
+      </div>
+    </div>
+
+    <div class="profile-card reveal d2">
+      <div class="profile-frame">
+        <img class="profile-img" src="images/profile.jpg" alt="홍왕기 프로필 사진">
+        <div class="profile-meta">
+          <div class="nm">홍왕기<small>Hong Wang Ki</small></div>
+          <div class="status"><span class="pulse"></span>OPEN TO WORK</div>
+        </div>
+      </div>
+      <div class="float-chip fc1"><span class="d" style="background:#ed8b00;"></span>Java 17</div>
+      <div class="float-chip fc2"><span class="d" style="background:#6db33f;"></span>Spring Boot</div>
+      <div class="float-chip fc3"><span class="d" style="background:#ff9900;"></span>AWS</div>
+    </div>
+  </div>
+</header>
+
+<div class="techstrip" aria-hidden="true">
+  <div class="marquee">
+    <span>Java</span><span>Spring Boot</span><span>JPA</span><span>MySQL</span><span>Oracle</span><span>Redis</span><span>AWS</span><span>Docker</span><span>k6</span><span>Git</span>
+    <span>Java</span><span>Spring Boot</span><span>JPA</span><span>MySQL</span><span>Oracle</span><span>Redis</span><span>AWS</span><span>Docker</span><span>k6</span><span>Git</span>
+  </div>
+</div>
+
+<!-- ============ SELECTED WORK ============ -->
+<section class="section-pad" data-screen-label="대표 프로젝트">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow reveal">// SELECTED WORK</span>
+      <h2 class="h2 reveal d1">성능으로 증명한<br>세 가지 프로젝트</h2>
+      <p class="lead reveal d2">문제를 정의하고, 원인을 추적하고, 수치로 개선을 증명했습니다. 각 프로젝트의 자세한 과정을 확인해 보세요.</p>
+    </div>
+    <div class="work-grid">
+      <a class="work reveal d1" href="html/teenple.html">
+        <div class="wimg"><img src="images/teenple-architecture.png" alt="TeenPle 아키텍처 미리보기"></div>
+        <div class="wno">01</div>
+        <h3>TeenPle</h3>
+        <p class="wdesc">학교 전용 익명 커뮤니티 플랫폼. 멀티 AZ 오토스케일링 기반 AWS 인프라로 설계했습니다.</p>
+        <div class="wtags"><i>Spring Boot</i><i>AWS</i><i>Redis</i><i>Rekognition</i></div>
+        <span class="go">아키텍처 보기
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="work reveal d2" href="html/drone.html">
+        <div class="wimg"><img src="images/drone_home_page.png" alt="배달의드론 홈 미리보기"></div>
+        <div class="wno">02</div>
+        <h3>배달의드론</h3>
+        <p class="wdesc">드론 시뮬레이터 기반 배달 자동화. 트랜잭션 병목과 동시성 문제를 해결했습니다.</p>
+        <div class="wtags"><i>Spring Boot</i><i>BlockingQueue</i><i>k6</i></div>
+        <span class="go">문제 해결 과정
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="work reveal d3" href="html/lms.html">
+        <div class="wimg"><img src="images/lms_login_pages.png" alt="LMS 로그인 미리보기"></div>
+        <div class="wno">03</div>
+        <h3>LMS 성능 최적화</h3>
+        <p class="wdesc">수강신청 트래픽 폭증을 쿼리 최적화와 Redis 캐싱으로 응답 97% 개선했습니다.</p>
+        <div class="wtags"><i>Fetch Join</i><i>Redis</i><i>JPA</i></div>
+        <span class="go">최적화 상세
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STRENGTHS ============ -->
+<section class="section-pad" style="background:var(--bg-tint);border-top:1px solid var(--line);border-bottom:1px solid var(--line);" data-screen-label="핵심 강점">
+  <div class="dotgrid"></div>
+  <div class="wrap" style="position:relative;z-index:1;">
+    <div class="sec-head">
+      <span class="eyebrow reveal">// CORE STRENGTH</span>
+      <h2 class="h2 reveal d1">서버를 떠받치는<br>네 가지 무기</h2>
+    </div>
+    <div class="str-grid">
+      <div class="str reveal d1">
+        <div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2h2"/><path d="M9 8V5a3 3 0 0 1 6 0v3"/><path d="M8 14h8M8 18h5"/></svg></div>
+        <div><h4>원활한 소통 능력</h4><p>팀 프로젝트 협업을 주도하고, 막힌 부분을 기술 공유로 함께 풀어냅니다.</p></div>
+      </div>
+      <div class="str reveal d2">
+        <div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
+        <div><h4>쿼리 튜닝 역량</h4><p>인덱스 설계와 실행 계획 분석으로 DB 성능을 끌어올립니다.</p></div>
+      </div>
+      <div class="str reveal d3">
+        <div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></div>
+        <div><h4>트랜잭션 · 동시성 처리</h4><p>비동기 구조와 락 전략으로 정합성과 처리량을 동시에 지킵니다.</p></div>
+      </div>
+      <div class="str reveal d4">
+        <div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/><path d="M11 8v3l2 2"/></svg></div>
+        <div><h4>문제 원인 분석</h4><p>로그와 부하 테스트로 병목을 식별하고 근본 원인을 좁혀갑니다.</p></div>
+      </div>
+    </div>
+    <div style="margin-top:42px;display:flex;justify-content:center;" class="reveal">
+      <a class="btn btn-ghost" href="career.html">전체 경력 · 자격증 보기
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<script src="js/site.js"></script>
+</body>
+</html>

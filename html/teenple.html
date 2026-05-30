@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TeenPle · 홍왕기</title>
+<meta name="description" content="TeenPle — 학교 전용 익명 커뮤니티 플랫폼, AWS 멀티 AZ 오토스케일링 인프라">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="../css/styles.css">
+<style>
+.proj-hero{padding:clamp(120px,16vw,170px) 0 clamp(30px,5vw,50px);position:relative;overflow:hidden;}
+.proj-hero .blob{position:absolute;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,#d7eefc,transparent 65%);top:-200px;right:-160px;filter:blur(50px);opacity:.7;z-index:0;}
+.crumb{font-family:var(--mono);font-size:13px;color:var(--ink-3);margin-bottom:22px;display:flex;gap:8px;align-items:center;position:relative;z-index:1;}
+.crumb a:hover{color:var(--sky-600);}
+.proj-hero .inner{position:relative;z-index:1;display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:end;}
+@media(max-width:900px){.proj-hero .inner{grid-template-columns:1fr;gap:28px;}}
+.proj-hero h1{font-size:clamp(48px,8vw,96px);font-weight:800;letter-spacing:-.045em;line-height:.98;}
+.proj-hero h1 .grad-text{display:inline;}
+.proj-sub{font-size:clamp(17px,2vw,21px);color:var(--ink-2);margin-top:18px;max-width:520px;line-height:1.6;}
+.proj-meta{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-sm);background:#fff;}
+.proj-meta .pm{display:flex;justify-content:space-between;gap:16px;padding:15px 20px;border-bottom:1px solid var(--line);font-size:14.5px;}
+.proj-meta .pm:last-child{border-bottom:none;}
+.proj-meta .pm .k{font-family:var(--mono);color:var(--ink-3);font-size:13px;}
+.proj-meta .pm .v{font-weight:600;text-align:right;}
+
+.ov-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(32px,5vw,60px);align-items:start;}
+@media(max-width:860px){.ov-grid{grid-template-columns:1fr;gap:30px;}}
+.ov-grid h2{font-size:clamp(26px,3.4vw,38px);font-weight:800;letter-spacing:-.03em;margin-bottom:18px;}
+.ov-grid p{color:var(--ink-2);font-size:16.5px;line-height:1.8;margin-bottom:14px;}
+.stack-box{background:var(--bg-tint);border:1px solid var(--line);border-radius:var(--r-lg);padding:26px;}
+.stack-box .sb-label{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px;}
+
+.arch-sec{background:var(--ink);color:#cdddec;padding:clamp(60px,8vw,100px) 0;position:relative;overflow:hidden;}
+.arch-sec::before{content:"";position:absolute;inset:0;background:radial-gradient(900px 400px at 20% -10%,rgba(18,150,230,.22),transparent 70%);pointer-events:none;}
+.arch-sec .eyebrow{color:var(--sky-300);}
+.arch-sec .eyebrow::before{background:var(--sky-400);}
+.arch-sec h2{color:#fff;font-size:clamp(28px,4vw,46px);font-weight:800;letter-spacing:-.035em;margin:16px 0 14px;}
+.arch-sec .a-lead{color:#9fbdd6;max-width:680px;font-size:16.5px;line-height:1.75;margin-bottom:40px;}
+.arch-frame{position:relative;background:#fff;border-radius:var(--r-lg);padding:20px;box-shadow:var(--shadow-lg);cursor:zoom-in;transition:transform .3s var(--ease);}
+.arch-frame:hover{transform:translateY(-4px);}
+.arch-frame img{width:100%;border-radius:10px;display:block;}
+.arch-frame .zoom-hint{position:absolute;top:32px;right:32px;background:rgba(10,31,51,.82);color:#fff;font-family:var(--mono);font-size:12px;padding:7px 13px;border-radius:99px;display:flex;align-items:center;gap:7px;backdrop-filter:blur(4px);}
+.arch-frame .zoom-hint svg{width:14px;height:14px;}
+.arch-cap{margin-top:16px;font-family:var(--mono);font-size:13px;color:#7d97ad;text-align:center;}
+
+.infra-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:54px;}
+@media(max-width:900px){.infra-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.infra-grid{grid-template-columns:1fr;}}
+.infra-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:24px;transition:.3s;}
+.infra-card:hover{background:rgba(255,255,255,.07);border-color:rgba(67,182,239,.4);transform:translateY(-3px);}
+.infra-card .svc{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--sky-300);display:flex;align-items:center;gap:9px;margin-bottom:12px;}
+.infra-card .svc .dot{width:9px;height:9px;border-radius:50%;}
+.infra-card h4{color:#fff;font-size:16px;margin-bottom:7px;letter-spacing:-.02em;}
+.infra-card p{color:#9fbdd6;font-size:14px;line-height:1.6;}
+
+.flow-legend{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px;}
+@media(max-width:860px){.flow-legend{grid-template-columns:1fr;}}
+.fl{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;box-shadow:var(--shadow-sm);}
+.fl .line{width:30px;height:3px;border-radius:3px;margin-top:9px;flex:none;}
+.fl h4{font-size:15px;margin-bottom:5px;}
+.fl p{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);line-height:1.55;}
+
+.nextproj{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:34px 38px;background:linear-gradient(135deg,#f3faff,#fff);border:1px solid var(--sky-200);border-radius:var(--r-lg);transition:.3s;flex-wrap:wrap;}
+.nextproj:hover{box-shadow:var(--shadow-md);transform:translateY(-3px);border-color:var(--sky-300);}
+.nextproj .np-l span{font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.1em;text-transform:uppercase;}
+.nextproj .np-l h3{font-size:26px;font-weight:800;letter-spacing:-.03em;margin-top:6px;}
+.nextproj .np-arrow{width:54px;height:54px;border-radius:50%;background:var(--grad);display:grid;place-items:center;color:#fff;flex:none;box-shadow:var(--shadow-sky);}
+.nextproj .np-arrow svg{width:22px;height:22px;}
+</style>
+</head>
+<body>
+
+<section class="proj-hero" data-screen-label="TeenPle 히어로">
+  <span class="blob"></span>
+  <div class="wrap">
+    <div class="crumb reveal"><a href="../index.html">홈</a> <span>/</span> <span>Project 01</span> <span>/</span> <span style="color:var(--sky-600);">TeenPle</span></div>
+    <div class="inner">
+      <div>
+        <span class="eyebrow reveal">// WEB PLATFORM · TEAM PROJECT</span>
+        <h1 class="display reveal d1" style="margin-top:18px;"><span class="grad-text">Teen</span>Ple</h1>
+        <p class="proj-sub reveal d2">학교 전용 익명 커뮤니티 플랫폼. 멀티 AZ 오토스케일링과 이미지 검열 파이프라인을 갖춘 AWS 클라우드 인프라 위에 설계했습니다.</p>
+      </div>
+      <div class="proj-meta reveal d3">
+        <div class="pm"><span class="k">TYPE</span><span class="v">익명 커뮤니티 플랫폼</span></div>
+        <div class="pm"><span class="k">ROLE</span><span class="v">Backend · Infra</span></div>
+        <div class="pm"><span class="k">STACK</span><span class="v">Spring Boot · AWS</span></div>
+        <div class="pm"><span class="k">FOCUS</span><span class="v">확장성 · 가용성</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="section-pad" style="padding-top:clamp(40px,6vw,70px);padding-bottom:clamp(50px,7vw,80px);">
+  <div class="wrap ov-grid">
+    <div class="reveal">
+      <span class="eyebrow">// OVERVIEW</span>
+      <h2 style="margin-top:14px;">학생들이 안전하게 소통하는<br>익명 커뮤니티</h2>
+      <p>TeenPle은 같은 학교 학생들끼리 익명으로 글과 사진을 공유하는 커뮤니티 서비스입니다. Java · Spring Boot로 API 서버를 구현하고, 트래픽 증가에 따라 자동으로 확장되는 AWS 인프라 위에 배포했습니다.</p>
+      <p>익명 서비스의 특성상 부적절한 이미지 업로드가 큰 리스크였기에, <b>Amazon Rekognition</b>으로 유해 이미지를 자동 검열한 뒤 통과한 이미지만 S3에 저장하는 파이프라인을 구성했습니다.</p>
+    </div>
+    <div class="stack-box reveal d1">
+      <div class="sb-label">Tech Stack</div>
+      <div class="chips">
+        <span class="chip solid">Java</span>
+        <span class="chip solid">Spring Boot</span>
+        <span class="chip solid">MySQL</span>
+        <span class="chip solid">Redis</span>
+        <span class="chip solid">AWS EC2</span>
+        <span class="chip solid">ALB · ASG</span>
+        <span class="chip solid">S3</span>
+        <span class="chip solid">Rekognition</span>
+        <span class="chip solid">CloudWatch</span>
+      </div>
+      <div class="sb-label" style="margin-top:24px;">Keywords</div>
+      <div class="chips">
+        <span class="tag">#멀티_AZ_고가용성</span>
+        <span class="tag">#오토스케일링</span>
+        <span class="tag">#이미지_검열_파이프라인</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHITECTURE -->
+<section class="arch-sec" data-screen-label="TeenPle 아키텍처">
+  <div class="wrap-wide">
+    <span class="eyebrow reveal">// SYSTEM ARCHITECTURE</span>
+    <h2 class="reveal d1">AWS 멀티 AZ 클라우드 인프라</h2>
+    <p class="a-lead reveal d2">Route 53부터 ALB · Auto Scaling · Private Subnet의 RDS / Redis, 그리고 Rekognition 이미지 검열까지 — 가용성과 확장성을 고려해 설계한 전체 구조입니다. 이미지를 클릭하면 크게 볼 수 있습니다.</p>
+
+    <div class="arch-frame reveal d2" id="archFrame">
+      <span class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>클릭하여 확대</span>
+      <img src="../images/teenple-architecture.png" alt="TeenPle AWS 아키텍처 다이어그램">
+    </div>
+    <p class="arch-cap reveal">TeenPle — AWS Cloud Architecture · Multi-AZ VPC</p>
+
+    <div class="infra-grid">
+      <div class="infra-card reveal">
+        <div class="svc"><span class="dot" style="background:#8c4fff;"></span>Route 53 · ALB</div>
+        <h4>API 라우팅 &amp; 로드 밸런싱</h4>
+        <p>Route 53가 API 도메인을 ALB로 라우팅하고, ALB가 멀티 AZ로 요청을 분산합니다.</p>
+      </div>
+      <div class="infra-card reveal d1">
+        <div class="svc"><span class="dot" style="background:#ff9900;"></span>EC2 · Auto Scaling</div>
+        <h4>오토스케일링 앱 서버</h4>
+        <p>Spring Boot API가 Private App Subnet에서 최대 2대까지 자동 확장됩니다.</p>
+      </div>
+      <div class="infra-card reveal d2">
+        <div class="svc"><span class="dot" style="background:#1aa3a3;"></span>Rekognition · S3</div>
+        <h4>유해 이미지 검열</h4>
+        <p>Rekognition으로 이미지를 검사한 뒤, 통과한 이미지만 S3에 저장합니다.</p>
+      </div>
+      <div class="infra-card reveal">
+        <div class="svc"><span class="dot" style="background:#3661c4;"></span>RDS MySQL · Redis</div>
+        <h4>데이터 &amp; 캐시 계층</h4>
+        <p>메인 DB(RDS MySQL)와 인메모리 캐시(ElastiCache Redis)를 Private Data Subnet에 격리 배치했습니다.</p>
+      </div>
+      <div class="infra-card reveal d1">
+        <div class="svc"><span class="dot" style="background:#e7157b;"></span>CloudWatch Logs</div>
+        <h4>로그 &amp; 지표 수집</h4>
+        <p>애플리케이션 로그와 지표를 CloudWatch Logs로 모아 모니터링합니다.</p>
+      </div>
+      <div class="infra-card reveal d2">
+        <div class="svc"><span class="dot" style="background:#cf2e2e;"></span>Systems Manager</div>
+        <h4>안전한 운영 접근</h4>
+        <p>SSH 대신 Session Manager로 EC2에 접근하고, NAT Gateway를 통해 아웃바운드 연결을 유지합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAFFIC FLOW -->
+<section class="section-pad">
+  <div class="wrap">
+    <span class="eyebrow reveal">// TRAFFIC FLOW</span>
+    <h2 class="h2 reveal d1" style="font-size:clamp(26px,3.4vw,40px);margin:14px 0 8px;">요청은 이렇게 흐릅니다</h2>
+    <div class="flow-legend">
+      <div class="fl reveal">
+        <span class="line" style="background:#2a5fd6;"></span>
+        <div><h4>사용자 요청 경로</h4><p>모바일 앱 → Route 53 → IGW → ALB → EC2</p></div>
+      </div>
+      <div class="fl reveal d1">
+        <span class="line" style="background:#8c4fff;"></span>
+        <div><h4>운영 · SSM 경로</h4><p>관리자 → AWS Systems Manager → EC2 (Session Manager)</p></div>
+      </div>
+      <div class="fl reveal d2">
+        <span class="line" style="background:#1aa3a3;"></span>
+        <div><h4>VPC 엔드포인트 경로</h4><p>EC2 → VPC Endpoint → S3 / Rekognition / CloudWatch</p></div>
+      </div>
+    </div>
+
+    <div style="margin-top:56px;">
+      <a class="nextproj reveal" href="drone.html">
+        <div class="np-l"><span>Next Project — 02</span><h3>배달의드론</h3></div>
+        <div class="np-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lbClose" aria-label="닫기">✕</button>
+  <img src="../images/teenple-architecture.png" alt="TeenPle AWS 아키텍처 다이어그램 확대">
+</div>
+
+<script src="../js/site.js"></script>
+<script>
+  (function(){
+    const lb=document.getElementById('lightbox');
+    const frame=document.getElementById('archFrame');
+    const close=document.getElementById('lbClose');
+    frame.addEventListener('click',()=>{lb.classList.add('open');document.body.style.overflow='hidden';});
+    const hide=()=>{lb.classList.remove('open');document.body.style.overflow='';};
+    lb.addEventListener('click',e=>{if(e.target===lb||e.target===close)hide();});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')hide();});
+  })();
+</script>
+</body>
+</html>

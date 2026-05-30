@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>경력 · 홍왕기</title>
+<meta name="description" content="홍왕기 — 학력, 경력, 기술 스택, 수상 및 자격증">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="../css/styles.css">
+<style>
+.page-hero .ph-grid{display:grid;grid-template-columns:1.3fr .9fr;gap:48px;align-items:end;}
+@media(max-width:900px){.page-hero .ph-grid{grid-template-columns:1fr;gap:30px;}}
+.page-hero h1{font-size:clamp(40px,6.5vw,76px);font-weight:800;letter-spacing:-.04em;line-height:1.02;margin:16px 0 0;}
+.ph-meta{display:flex;flex-direction:column;gap:14px;}
+.ph-meta .row{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:14px;color:var(--ink-2);}
+.ph-meta .row b{color:var(--ink);font-weight:600;}
+.ph-meta .row .k{color:var(--ink-3);min-width:64px;}
+
+.career-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(36px,5vw,64px);align-items:start;}
+@media(max-width:960px){.career-grid{grid-template-columns:1fr;}}
+.block-title{display:flex;align-items:center;gap:13px;font-size:22px;font-weight:800;letter-spacing:-.03em;margin-bottom:30px;}
+.block-title .bt-no{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--sky-500);background:var(--sky-50);border:1px solid var(--sky-200);padding:5px 10px;border-radius:8px;}
+
+.timeline{position:relative;padding-left:34px;}
+.timeline::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--sky-300),var(--line));}
+.tl-item{position:relative;padding-bottom:34px;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-item::before{content:"";position:absolute;left:-34px;top:5px;width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid var(--sky-400);box-shadow:0 0 0 4px var(--sky-50);}
+.tl-item.now::before{background:var(--grad);border-color:var(--sky-500);}
+.tl-date{font-family:var(--mono);font-size:13px;color:var(--sky-600);font-weight:600;letter-spacing:.02em;}
+.tl-item h3{font-size:19px;margin:8px 0 6px;letter-spacing:-.02em;}
+.tl-item .org{color:var(--ink-2);font-size:15px;}
+.tl-item .meta{margin-top:8px;display:inline-flex;gap:8px;flex-wrap:wrap;}
+.tl-badge{font-family:var(--mono);font-size:12px;color:var(--ink-3);background:var(--bg-tint);border:1px solid var(--line);padding:4px 10px;border-radius:7px;}
+.now-pill{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.08em;color:#fff;background:var(--grad);padding:3px 9px;border-radius:99px;}
+
+.tech-cat{margin-bottom:22px;}
+.tech-cat .cat-label{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:11px;}
+.tech-row{display:flex;flex-wrap:wrap;gap:9px;}
+.tech-pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:13.5px;font-weight:500;padding:9px 15px;border-radius:11px;border:1px solid var(--line-2);background:#fff;box-shadow:var(--shadow-sm);transition:.2s;}
+.tech-pill:hover{transform:translateY(-2px);border-color:var(--sky-300);box-shadow:var(--shadow-md);}
+.tech-pill .d{width:9px;height:9px;border-radius:3px;flex:none;}
+
+.side-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:28px;box-shadow:var(--shadow-sm);margin-bottom:20px;}
+.award-item,.lic-item{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px dashed var(--line);}
+.award-item:last-child,.lic-item:last-child{border-bottom:none;padding-bottom:0;}
+.award-item:first-child,.lic-item:first-child{padding-top:0;}
+.ai-ic{width:38px;height:38px;flex:none;border-radius:10px;display:grid;place-items:center;}
+.ai-ic.gold{background:#fff7e6;border:1px solid #ffe2a8;color:#d99100;}
+.ai-ic.sky{background:var(--sky-50);border:1px solid var(--sky-200);color:var(--sky-600);}
+.ai-ic svg{width:19px;height:19px;}
+.award-item h4,.lic-item h4{font-size:15.5px;letter-spacing:-.01em;}
+.award-item p,.lic-item p{font-size:13px;color:var(--ink-3);font-family:var(--mono);margin-top:2px;}
+</style>
+</head>
+<body>
+
+<section class="page-hero" data-screen-label="경력 히어로">
+  <div class="dotgrid"></div>
+  <div class="wrap" style="position:relative;z-index:1;">
+    <div class="ph-grid">
+      <div>
+        <span class="eyebrow reveal">// CAREER &amp; PROFILE</span>
+        <h1 class="reveal d1">경력 &amp; 프로필</h1>
+        <p class="lead reveal d2" style="margin-top:20px;max-width:540px;">광운대학교에서 컴퓨터공학을 전공하고, 클라우드 교육을 거쳐 현재 제조 IT 현장에서 물류 시스템을 개발하고 있습니다.</p>
+      </div>
+      <div class="ph-meta reveal d3">
+        <div class="row"><span class="k">학력</span><b>광운대 컴퓨터정보공학부</b></div>
+        <div class="row"><span class="k">GPA</span><b>3.74 / 4.5</b> <span class="muted">(전공 3.82)</span></div>
+        <div class="row"><span class="k">현재</span><b>해태제과식품 IT개발팀</b></div>
+        <div class="row"><span class="k">분야</span><b>Backend · Java / Spring</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" style="padding-top:clamp(30px,5vw,50px);">
+  <div class="wrap career-grid">
+    <div>
+      <div class="block-title reveal"><span class="bt-no">01</span>Experience</div>
+      <div class="timeline">
+        <div class="tl-item now reveal">
+          <div class="tl-date">2026.01 — 현재</div>
+          <h3>해태제과식품 · IT개발팀 <span class="now-pill">NOW</span></h3>
+          <p class="org">정규직 백엔드 개발 — 사내 물류 시스템 개발 및 운영</p>
+          <div class="meta"><span class="tl-badge">물류 시스템</span><span class="tl-badge">운영 개발</span></div>
+        </div>
+        <div class="tl-item reveal d1">
+          <div class="tl-date">2025.12 — 2026.01</div>
+          <h3>[SK AX] SKALA_CLOUD 1기</h3>
+          <p class="org">SK AX 주관 클라우드 엔지니어링 부트캠프 — AWS 기반 인프라 · 백엔드 심화</p>
+          <div class="meta"><span class="tl-badge">AWS</span><span class="tl-badge">Cloud</span><span class="tl-badge">1기 수료</span></div>
+        </div>
+        <div class="tl-item reveal d2">
+          <div class="tl-date">2020.03 — 2026.02</div>
+          <h3>광운대학교 컴퓨터정보공학부</h3>
+          <p class="org">학사 졸업 — GPA 3.74 / 4.5 (전공 3.82)</p>
+          <div class="meta"><span class="tl-badge">Computer Engineering</span><span class="tl-badge">B.S.</span></div>
+        </div>
+      </div>
+
+      <div style="height:56px;"></div>
+
+      <div class="block-title reveal"><span class="bt-no">02</span>Tech Stack</div>
+      <div class="tech-cat reveal">
+        <div class="cat-label">Language</div>
+        <div class="tech-row">
+          <span class="tech-pill"><span class="d" style="background:#ed8b00;"></span>Java 17</span>
+          <span class="tech-pill"><span class="d" style="background:#3776ab;"></span>Python</span>
+          <span class="tech-pill"><span class="d" style="background:#b71c1c;"></span>Delphi</span>
+        </div>
+      </div>
+      <div class="tech-cat reveal d1">
+        <div class="cat-label">Framework · ORM</div>
+        <div class="tech-row">
+          <span class="tech-pill"><span class="d" style="background:#6db33f;"></span>Spring Boot</span>
+          <span class="tech-pill"><span class="d" style="background:#59666c;"></span>JPA / Hibernate</span>
+        </div>
+      </div>
+      <div class="tech-cat reveal d2">
+        <div class="cat-label">Database · Cache</div>
+        <div class="tech-row">
+          <span class="tech-pill"><span class="d" style="background:#00758f;"></span>MySQL</span>
+          <span class="tech-pill"><span class="d" style="background:#f80000;"></span>Oracle</span>
+          <span class="tech-pill"><span class="d" style="background:#d82c20;"></span>Redis</span>
+        </div>
+      </div>
+      <div class="tech-cat reveal d3">
+        <div class="cat-label">Infra · DevOps · Test</div>
+        <div class="tech-row">
+          <span class="tech-pill"><span class="d" style="background:#ff9900;"></span>AWS</span>
+          <span class="tech-pill"><span class="d" style="background:#2496ed;"></span>Docker</span>
+          <span class="tech-pill"><span class="d" style="background:#f05032;"></span>Git</span>
+          <span class="tech-pill"><span class="d" style="background:#7d64ff;"></span>k6</span>
+        </div>
+      </div>
+    </div>
+
+    <aside>
+      <div class="block-title reveal"><span class="bt-no">03</span>Core Strength</div>
+      <div class="side-card reveal" style="padding:24px;">
+        <div style="display:flex;flex-direction:column;gap:18px;">
+          <div><h4 style="font-size:16px;margin-bottom:4px;">원활한 소통 능력</h4><p style="font-size:14px;color:var(--ink-2);">팀 프로젝트 협업 주도 및 기술 공유</p></div>
+          <hr class="divider">
+          <div><h4 style="font-size:16px;margin-bottom:4px;">쿼리 튜닝 역량</h4><p style="font-size:14px;color:var(--ink-2);">DB 성능 최적화 및 인덱스 설계 수행</p></div>
+          <hr class="divider">
+          <div><h4 style="font-size:16px;margin-bottom:4px;">트랜잭션 · 동시성 처리</h4><p style="font-size:14px;color:var(--ink-2);">비동기 구조 및 락 전략 적용</p></div>
+          <hr class="divider">
+          <div><h4 style="font-size:16px;margin-bottom:4px;">문제 원인 분석</h4><p style="font-size:14px;color:var(--ink-2);">로그 · 부하 테스트 기반 병목 식별</p></div>
+        </div>
+      </div>
+
+      <div class="block-title reveal" style="margin-top:44px;"><span class="bt-no">04</span>Awards</div>
+      <div class="side-card reveal">
+        <div class="award-item">
+          <div class="ai-ic gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.2 13.3 7 22l5-3 5 3-1.2-8.7"/></svg></div>
+          <div><h4>Dean's List</h4><p>4-1학기 상위 5등 수상</p></div>
+        </div>
+      </div>
+
+      <div class="block-title reveal" style="margin-top:44px;"><span class="bt-no">05</span>License</div>
+      <div class="side-card reveal">
+        <div class="lic-item">
+          <div class="ai-ic sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <div><h4>정보처리기사</h4><p>Engineer Information Processing</p></div>
+        </div>
+        <div class="lic-item">
+          <div class="ai-ic sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <div><h4>SQLD</h4><p>SQL 개발자</p></div>
+        </div>
+        <div class="lic-item">
+          <div class="ai-ic sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <div><h4>워드프로세서 1급</h4><p>Word Processor Level 1</p></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<script src="../js/site.js"></script>
+</body>
+</html>
