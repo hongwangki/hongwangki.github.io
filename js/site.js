@@ -19,12 +19,14 @@
     email: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2.5"/><path d="m3 6 9 6 9-6"/></svg>',
   };
 
-  /* ---------- NAV ---------- */
-  if (!inSub) {
+  /* ---------- NAV (모든 페이지 공통) ---------- */
+  {
+    // 홈은 해시 스크롤(부드럽게), 서브페이지는 홈으로 이동 후 해당 섹션
+    const home = inSub ? `${toRoot}index.html` : "";
     const nav = document.createElement("nav");
     nav.className = "nav";
     nav.innerHTML = `
-      <a class="nav-brand" href="#about">
+      <a class="nav-brand" href="${home}#about">
         <span class="nav-mark"><span>HW</span></span>
         <span>홍왕기 · Backend Developer</span>
       </a>
@@ -32,10 +34,10 @@
         <span></span><span></span><span></span>
       </button>
       <div class="nav-links">
-        <a class="nav-link" href="#about">홈</a>
-        <a class="nav-link" href="#experience">경력</a>
-        <a class="nav-link" href="#projects">프로젝트</a>
-        <a class="nav-cta" href="#contact">연락처</a>
+        <a class="nav-link" href="${home}#about">홈</a>
+        <a class="nav-link" href="${home}#experience">경력</a>
+        <a class="nav-link" href="${home}#projects">프로젝트</a>
+        <a class="nav-link" href="${home}#contact">연락처</a>
       </div>
     `;
     document.body.prepend(nav);

@@ -9,9 +9,11 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="stylesheet" href="css/styles.css">
 <style>
-html{scroll-padding-top:0;}
+html{scroll-padding-top:0;scroll-snap-type:y mandatory;}
+@media(max-width:880px),(max-height:620px){html{scroll-snap-type:none;}}
+.home-hero,#experience,#projects,#contact{scroll-snap-align:start;scroll-snap-stop:always;}
 /* ============ HERO / ABOUT ============ */
-.home-hero{position:relative;min-height:calc(100vh - 48px);display:flex;align-items:center;
+.home-hero{position:relative;min-height:100svh;display:flex;align-items:center;
   padding:clamp(56px,7vw,84px) 0 clamp(40px,5vw,56px);overflow:hidden;
   background:
     radial-gradient(ellipse 58% 50% at 8% 14%,rgba(227,243,253,.82),transparent 72%),
@@ -75,7 +77,7 @@ html{scroll-padding-top:0;}
     linear-gradient(135deg,#fbfdff 0%,#fff 52%,#fafdff 100%);}
 #experience>.wrap{width:100%;position:relative;z-index:1;}
 @media(min-width:821px){
-  #experience.section-pad{min-height:100vh;display:flex;align-items:center;padding:64px 0 32px;}
+  #experience.section-pad{min-height:100svh;display:flex;align-items:center;padding:64px 0 32px;}
 }
 #experience .block-head{margin-bottom:10px;}
 #experience .block-head h2{margin-top:5px!important;}
@@ -151,14 +153,19 @@ html{scroll-padding-top:0;}
     linear-gradient(135deg,#fbfdff 0%,#fff 54%,#fafdff 100%);}
 #projects>.wrap{position:relative;z-index:1;width:100%;}
 @media(min-width:881px){
-  #projects.section-pad{min-height:100vh;display:flex;align-items:center;padding:64px 0 40px;}
+  #projects.section-pad{min-height:100svh;display:flex;align-items:center;padding:64px 0 40px;}
 }
 .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
 @media(max-width:880px){.work-grid{grid-template-columns:1fr;}}
-.work{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);
+.work{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);
   overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .35s var(--ease),box-shadow .35s,border-color .35s;}
+.work::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--grad);z-index:2;}
+.work.work-teenple::before{background:linear-gradient(90deg,#22c55e,#0ea5e9);}
+.work.work-drone::before{background:linear-gradient(90deg,#0ea5e9,#2563eb);}
+.work.work-lms::before{background:linear-gradient(90deg,#08283f,#0ea5e9);}
 .work:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--sky-200);}
-.work .wimg{height:150px;overflow:hidden;background:var(--bg-tint);border-bottom:1px solid var(--line);}
+.work .wimg{height:150px;overflow:hidden;background:var(--bg-tint);border-bottom:1px solid var(--line);position:relative;}
+.work .wimg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(8,40,63,.10));pointer-events:none;}
 .work .wimg img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .7s var(--ease);}
 .work:hover .wimg img{transform:scale(1.06);}
 .work .wbody{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1;}
@@ -166,19 +173,23 @@ html{scroll-padding-top:0;}
 .work h3{font-size:19px;margin:8px 0 2px;letter-spacing:-.025em;}
 .work .wsub{font-size:12px;font-weight:700;color:var(--sky-700);margin-bottom:7px;}
 .work .wdesc{color:var(--ink-2);font-size:13.5px;line-height:1.6;flex:1;}
+.work .wmetric{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:14px 0 2px;}
+.work .wmetric span{padding:9px 10px;border-radius:10px;background:#f7fbff;border:1px solid var(--sky-200);}
+.work .wmetric b{display:block;font-family:var(--grotesk);font-size:17px;line-height:1;color:var(--sky-700);letter-spacing:-.03em;}
+.work .wmetric small{display:block;margin-top:4px;font-size:10.5px;color:var(--ink-3);font-weight:700;line-height:1.25;}
 .work .wtags{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 16px;}
-.work .wtags i{font-family:var(--mono);font-style:normal;font-size:11px;color:var(--sky-700);background:var(--sky-50);border:1px solid var(--sky-200);padding:3px 9px;border-radius:6px;}
+.work .wtags{display:none;}
 .work .go{display:inline-flex;align-items:center;gap:7px;font-weight:600;font-size:13px;color:var(--ink);transition:gap .25s,color .25s;}
 .work:hover .go{gap:12px;color:var(--sky-600);}
 .work .go svg{width:15px;height:15px;}
 
 /* ============ contact — dark gradient CTA card ============ */
-.contact-band{scroll-margin-top:64px;border-top:1px solid var(--line);
+.contact-band{scroll-margin-top:0;border-top:1px solid var(--line);
   background:
     radial-gradient(ellipse 58% 50% at 10% 12%,rgba(227,243,253,.78),transparent 72%),
     radial-gradient(ellipse 48% 44% at 92% 88%,rgba(234,245,254,.66),transparent 74%),
     linear-gradient(135deg,#fbfdff 0%,#fff 52%,#fafdff 100%);}
-@media(min-width:821px){.contact-band{min-height:calc(100vh - 64px);display:flex;align-items:center;padding:52px 0;}}
+@media(min-width:821px){.contact-band{min-height:100svh;display:flex;align-items:center;padding:64px 0 52px;}}
 .contact-band>.wrap{width:100%;}
 .cta-card{position:relative;overflow:hidden;background:linear-gradient(135deg,#0a1f33 0%,#0c3357 100%);
   border-radius:var(--r-xl);padding:clamp(34px,5vw,58px);box-shadow:0 24px 60px rgba(7,94,156,.18),0 8px 20px rgba(10,31,51,.08);}
@@ -235,16 +246,16 @@ html{scroll-padding-top:0;}
       <div class="pinfo">
         <span class="pstatus"><span class="dot"></span>OPEN TO WORK</span>
         <div class="pfacts">
-          <div class="row"><span class="k">생년월일</span><span class="v">2001년 7월 21일</span></div>
-          <div class="row"><span class="k">학력</span><span class="v">광운대 컴퓨터정보공학부</span></div>
+          <div class="row"><span class="k">BORN</span><span class="v">2001년 7월 21일</span></div>
+          <div class="row"><span class="k">EDU</span><span class="v">광운대 컴퓨터정보공학부</span></div>
           <div class="row"><span class="k">GPA</span><span class="v">3.74 / 4.5 (전공 3.82)</span></div>
-          <div class="row"><span class="k">현재</span><span class="v">해태제과 · 물류시스템</span></div>
+          <div class="row"><span class="k">NOW</span><span class="v">해태제과 · 물류시스템</span></div>
         </div>
       </div>
     </div>
 
     <div class="hh-copy">
-      <span class="eyebrow reveal">// BACKEND DEVELOPER</span>
+      <span class="eyebrow reveal">BACKEND DEVELOPER</span>
       <h1 class="reveal d1"><span class="grad-text">홍왕기</span><span class="hh-name-ko">Hong Wang Ki · Backend Developer</span></h1>
       <p class="hh-lead reveal d2">실무에서는 <b>물류 시스템</b>을 개발·운영하고, 개인적으로는 <b>AWS · Spring</b> 기반 서버 개발을 이어가며 깊이를 더해가는 백엔드 개발자입니다.</p>
       <div class="hh-cta reveal d3">
@@ -280,7 +291,7 @@ html{scroll-padding-top:0;}
   <div class="wrap">
     <div class="block-head">
       <div>
-        <span class="eyebrow reveal">// CAREER &amp; SKILLS</span>
+        <span class="eyebrow reveal">CAREER &amp; SKILLS</span>
         <h2 class="reveal d1" style="margin-top:10px;">경력 &amp; 기술</h2>
       </div>
       <p class="h-sub reveal d2">학력에서 현재 실무까지, 그리고 다루는 기술과 강점.</p>
@@ -409,43 +420,46 @@ html{scroll-padding-top:0;}
   <div class="wrap">
     <div class="block-head">
       <div>
-        <span class="eyebrow reveal">// PROJECTS</span>
+        <span class="eyebrow reveal">PROJECTS</span>
         <h2 class="reveal d1" style="margin-top:10px;">프로젝트</h2>
       </div>
       <p class="h-sub reveal d2">직접 만들고 운영하며 성능과 안정성을 다룬 작업들입니다.</p>
     </div>
     <div class="work-grid">
-      <a class="work reveal d1" href="html/teenple.html">
+      <a class="work work-teenple reveal d1" href="html/teenple.html">
         <div class="wimg"><img src="images/teenple-architecture.png" alt="TeenPle 아키텍처 미리보기"></div>
         <div class="wbody">
           <div class="wno">01</div>
           <h3>TeenPle</h3>
           <p class="wsub">10대들의 학교 전용 익명 커뮤니티 앱</p>
           <p class="wdesc">실제 배포한 고등학생 익명 커뮤니티 앱. Flutter 앱·Spring 백엔드·AWS까지 풀스택으로 구축했습니다.</p>
+          <div class="wmetric"><span><b>Released</b><small>실제 출시 경험</small></span><span><b>FE·BE</b><small>앱부터 서버까지</small></span></div>
           <div class="wtags"><i>Full-stack</i><i>Flutter</i><i>Spring Boot</i><i>AWS</i></div>
           <span class="go">자세히 보기
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </div>
       </a>
-      <a class="work reveal d2" href="html/drone.html">
+      <a class="work work-drone reveal d2" href="html/drone.html">
         <div class="wimg"><img src="images/drone_home_page.png" alt="배달의드론 홈 미리보기"></div>
         <div class="wbody">
           <div class="wno">02</div>
           <h3>배달의드론</h3>
           <p class="wsub">드론 기반 배달 자동화 시스템</p>
           <p class="wdesc">드론 시뮬레이터 기반 배달 자동화. 트랜잭션 병목과 동시성 문제를 해결했습니다.</p>
+          <div class="wmetric"><span><b>Queue</b><small>주문 생존 구조</small></span><span><b>Lock</b><small>동시성 제어</small></span></div>
           <div class="wtags"><i>Spring Boot</i><i>BlockingQueue</i><i>k6</i></div>
           <span class="go">문제 해결 과정
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </div>
       </a>
-      <a class="work reveal d3" href="html/lms.html">
+      <a class="work work-lms reveal d3" href="html/lms.html">
         <div class="wimg"><img src="images/lms_login_pages.png" alt="LMS 로그인 미리보기"></div>
         <div class="wbody">
           <div class="wno">03</div>
           <h3>LMS 성능 최적화</h3>
           <p class="wsub">수강신청 트래픽 대응 성능 개선</p>
           <p class="wdesc">수강신청 트래픽 폭증을 쿼리 최적화와 Redis 캐싱으로 응답 97% 개선했습니다.</p>
+          <div class="wmetric"><span><b>0.07s</b><small>평균 응답</small></span><span><b>97%</b><small>응답 단축</small></span></div>
           <div class="wtags"><i>Fetch Join</i><i>Redis</i><i>JPA</i></div>
           <span class="go">최적화 상세
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
@@ -461,7 +475,7 @@ html{scroll-padding-top:0;}
     <div class="cta-card reveal">
       <div class="cta-inner">
         <div>
-          <span class="eyebrow">// COLLABORATION</span>
+          <span class="eyebrow">COLLABORATION</span>
           <h2><span class="accent">좋은 성과와 행복한 과정은</span><br>협업에서 시작된다고 믿습니다.</h2>
           <p class="ctxt">서로의 관점을 존중하며 함께 답을 찾아가는 과정을 중요하게 생각합니다. 좋은 결과뿐 아니라 함께 성장하는 경험을 만드는 개발자입니다.</p>
           <span class="cta-note">

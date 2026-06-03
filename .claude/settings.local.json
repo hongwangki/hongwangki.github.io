@@ -49,7 +49,29 @@
       "Bash(\"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --hide-scrollbars --virtual-time-budget=5000 --window-size=1280,2000 --screenshot=\"D:\\\\Portfolio\\\\hongwangki.github.io\\\\_g.png\" \"file:///D:/Portfolio/hongwangki.github.io/index.html#experience\")",
       "Bash(sed 's/min-height:calc\\(100vh - 48px\\);display:flex;align-items:center;//' index.html)",
       "Bash(\"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --hide-scrollbars --virtual-time-budget=5000 --window-size=1280,1500 --screenshot=\"D:\\\\Portfolio\\\\hongwangki.github.io\\\\_t.png\" \"D:\\\\Portfolio\\\\hongwangki.github.io\\\\_t.html\")",
-      "Bash(python3 -c \"from PIL import Image; im=Image.open\\('_t.png'\\); im.crop\\(\\(40,1180,665,1460\\)\\).save\\('_tc.png'\\); print\\('ok'\\)\")"
+      "Bash(python3 -c \"from PIL import Image; im=Image.open\\('_t.png'\\); im.crop\\(\\(40,1180,665,1460\\)\\).save\\('_tc.png'\\); print\\('ok'\\)\")",
+      "Bash(cp \"/home/leejd8130/.claude/image-cache/7ad0bc34-4a7b-402f-afba-151e4db473a6/4.png\" /mnt/d/Portfolio/hongwangki.github.io/images/drone_hero.png)",
+      "Bash(python3 -c \"from PIL import Image; im=Image.open\\('/mnt/d/Portfolio/hongwangki.github.io/images/drone_hero.png'\\); print\\('size',im.size,'mode',im.mode\\)\")",
+      "Bash(node -e \"try{require.resolve\\('puppeteer'\\);console.log\\('puppeteer OK'\\)}catch\\(e\\){console.log\\('no puppeteer'\\)}\")",
+      "Bash(node -e \"try{require.resolve\\('playwright'\\);console.log\\('playwright OK'\\)}catch\\(e\\){console.log\\('no playwright'\\)}\")",
+      "Read(//home/leejd8130/.cache/**)",
+      "Bash(pip show *)",
+      "Bash(timeout 6 bash -c 'curl -sI https://registry.npmjs.org 2>/dev/null | head -1')",
+      "Bash(pip install *)",
+      "Bash(python3 -m playwright install chromium)",
+      "Bash(python3 -c \"import numpy; print\\('numpy',numpy.__version__\\)\")",
+      "Bash(python3 /tmp/shot.py /tmp/drone2)",
+      "Bash(python3 /tmp/shot.py /tmp/drone3)",
+      "Bash(python3 /tmp/shot.py /tmp/dchk)",
+      "Bash(python3 /tmp/measure.py)",
+      "Bash(python3 /tmp/shot.py /tmp/dfix)",
+      "Bash(python3 /tmp/bottom.py)",
+      "Bash(cp /home/leejd8130/.claude/image-cache/7ad0bc34-4a7b-402f-afba-151e4db473a6/7.png /mnt/d/Portfolio/hongwangki.github.io/images/drone_menu.png)",
+      "Bash(python3 -c \"from PIL import Image; im=Image.open\\('/mnt/d/Portfolio/hongwangki.github.io/images/drone_menu.png'\\); print\\('size',im.size,'ratio',round\\(im.size[0]/im.size[1],2\\)\\)\")",
+      "Bash(python3 /tmp/shot.py /tmp/dfin)",
+      "Bash(python3 /tmp/wheel.py)",
+      "Bash(python3 /tmp/shot.py /tmp/dsvc)",
+      "Bash(python3 /tmp/shot.py /tmp/dsvc2)"
     ]
   }
 }

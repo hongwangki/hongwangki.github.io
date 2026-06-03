@@ -4,186 +4,283 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TeenPle · 홍왕기</title>
-<meta name="description" content="TeenPle — Flutter·Spring으로 직접 출시한 고등학생 전용 익명 커뮤니티 앱. 프론트엔드·백엔드·AWS 인프라까지 풀스택 구축">
+<meta name="description" content="TeenPle — Flutter·Spring·AWS로 직접 출시하고 운영한 고등학생 전용 익명 커뮤니티 앱">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="stylesheet" href="../css/styles.css">
 <style>
-/* ---------- hero ---------- */
-.p-hero{padding:clamp(60px,8vw,84px) 0 clamp(20px,3vw,32px);position:relative;overflow:hidden;}
-.p-hero .blob{position:absolute;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,#d7eefc,transparent 65%);top:-180px;right:-150px;filter:blur(50px);opacity:.7;z-index:0;}
-.crumb{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin-bottom:14px;display:flex;gap:8px;align-items:center;position:relative;z-index:1;}
-.crumb a:hover{color:var(--sky-600);}
-.hero-row{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.04fr;gap:clamp(24px,4vw,46px);align-items:center;}
-@media(max-width:900px){.hero-row{grid-template-columns:1fr;gap:26px;}}
-.badge-live{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.04em;
-  color:#15803d;background:#f0fdf4;border:1px solid #bbf7d0;padding:5px 11px;border-radius:99px;margin-bottom:12px;}
-.badge-live .dot{width:6px;height:6px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 0 rgba(34,197,94,.5);animation:lp 2s infinite;}
-@keyframes lp{0%{box-shadow:0 0 0 0 rgba(34,197,94,.5);}70%{box-shadow:0 0 0 6px rgba(34,197,94,0);}100%{box-shadow:0 0 0 0 rgba(34,197,94,0);}}
-.p-hero h1{font-family:var(--grotesk);font-size:clamp(32px,4.6vw,50px);font-weight:700;letter-spacing:-.045em;line-height:1;}
-.p-hero h1 .grad-text{display:inline;}
-.p-sub{font-size:clamp(14px,1.4vw,15.5px);color:var(--ink-2);line-height:1.65;max-width:470px;margin-top:12px;}
-.p-sub b{color:var(--ink);font-weight:600;}
-.meta-inline{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
-.meta-inline .mi{font-family:var(--mono);font-size:11.5px;color:var(--ink-2);background:#fff;border:1px solid var(--line-2);padding:6px 12px;border-radius:99px;}
-.meta-inline .mi b{color:var(--sky-700);}
-.repo-row{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px;}
+body{background:#fff;}
+html{scroll-snap-type:y mandatory;scroll-padding-top:0;}
+@media(max-width:880px),(max-height:620px){html{scroll-snap-type:none;}}
+.t-hero,.t-sec,.outro{scroll-snap-align:start;scroll-snap-stop:always;}
+.t-hero,.t-sec{min-height:100svh;display:flex;align-items:center;overflow:hidden;position:relative;padding:88px 0 48px;}
+.t-hero>.wrap,.t-sec>.wrap{width:100%;position:relative;z-index:1;}
 
-/* 역할 요약 — FE/BE/Infra 한눈에 */
-.role-flow{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-md);overflow:hidden;}
-.role-flow .rrow{display:flex;gap:14px;align-items:flex-start;padding:16px 20px;border-bottom:1px solid var(--line);}
-.role-flow .rrow:last-child{border-bottom:none;}
-.role-flow .ri{width:38px;height:38px;flex:none;border-radius:11px;background:var(--sky-50);border:1px solid var(--sky-200);display:grid;place-items:center;color:var(--sky-600);}
-.role-flow .ri svg{width:19px;height:19px;}
-.role-flow .rt{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.08em;text-transform:uppercase;}
-.role-flow h4{font-size:15px;letter-spacing:-.02em;margin:1px 0 7px;}
-.role-flow .chips{gap:6px;}
-.role-flow .chip{font-size:11px;padding:4px 9px;}
+/* INTRO */
+.t-hero{background:
+  radial-gradient(900px 520px at 82% 42%,rgba(30,136,255,.17),transparent 68%),
+  radial-gradient(760px 460px at 16% 90%,rgba(139,92,246,.11),transparent 68%),
+  linear-gradient(180deg,#fcfeff 0%,#eef8ff 100%);}
+.t-hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(18,150,230,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(18,150,230,.055) 1px,transparent 1px);background-size:42px 42px;opacity:.48;mask-image:radial-gradient(ellipse at 74% 48%,#000 0 48%,transparent 78%);}
+.t-hero::after{content:"";position:absolute;right:-10%;top:12%;width:54vw;height:54vw;max-width:760px;max-height:760px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.58),rgba(18,150,230,.055) 48%,transparent 70%);border:1px solid rgba(18,150,230,.10);}
+.t-hero .wrap{max-width:1320px;}
+.hero-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(42px,5.4vw,84px);align-items:center;}
+.hero-copy h1{font-family:var(--grotesk);font-size:clamp(36px,4.8vw,66px);font-weight:700;letter-spacing:-.048em;line-height:.98;margin:14px 0 18px;}
+.hero-copy h1 span{color:var(--sky-500);}
+.hero-copy .lead{max-width:570px;font-size:clamp(14.5px,1.22vw,16px);line-height:1.76;color:var(--ink-2);border-left:3px solid var(--sky-500);padding-left:20px;}
+.hero-copy .lead b{color:var(--ink);font-weight:700;}
+.live{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.08em;color:#0a7d55;background:#effaf4;border:1px solid #bdebd1;padding:6px 12px;border-radius:99px;}
+.live i{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 0 rgba(34,197,94,.55);animation:pulse 2s infinite;}
+@keyframes pulse{70%{box-shadow:0 0 0 7px rgba(34,197,94,0);}}
+.meta{display:grid;grid-template-columns:repeat(3,auto);gap:0;margin:24px 0 22px;max-width:650px;width:max-content;border-top:1px solid rgba(18,150,230,.26);border-bottom:1px solid rgba(18,150,230,.18);}
+.meta .m{position:relative;padding:13px 22px 13px 0;background:transparent;border:0;box-shadow:none;backdrop-filter:none;min-height:0;min-width:0;}
+.meta .m+.m{padding-left:22px;border-left:1px solid rgba(18,150,230,.16);}
+.meta .m::before{content:"";position:absolute;left:0;top:-1px;width:24px;height:2px;border-radius:99px;background:var(--sky-500);box-shadow:none;}
+.meta .m+.m::before{left:22px;}
+.meta .m::after{display:none;}
+.meta .k{font-family:var(--mono);font-size:10px;color:var(--sky-700);letter-spacing:.12em;text-transform:uppercase;font-weight:800;}
+.meta .v{font-size:13.5px;font-weight:800;color:var(--ink);margin-top:5px;line-height:1.35;}
+.repo-row{display:flex;gap:9px;flex-wrap:wrap;}
+.t-hero .repo-row .btn{padding:15px 25px;font-size:15px;box-shadow:var(--shadow-md);}
+.t-hero .repo-row .btn svg{width:18px;height:18px;}
+.hero-art{position:relative;min-height:min(58vw,650px);z-index:1;}
+.hero-art::before{content:"";position:absolute;left:15%;right:11%;bottom:3%;height:20%;border-radius:999px;background:radial-gradient(ellipse,rgba(7,94,156,.18),transparent 72%);filter:blur(16px);}
+.product-stage{position:absolute;inset:0;display:grid;grid-template-rows:1fr auto;gap:22px;padding:38px 42px 34px;border-radius:40px;background:
+  radial-gradient(420px 300px at 48% 34%,rgba(18,150,230,.16),transparent 72%),
+  radial-gradient(360px 260px at 82% 76%,rgba(139,92,246,.10),transparent 70%),
+  linear-gradient(145deg,rgba(255,255,255,.72),rgba(239,248,255,.38));border:1px solid rgba(191,229,251,.82);box-shadow:0 38px 100px rgba(7,94,156,.13);overflow:hidden;}
+.product-stage::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(18,150,230,.12) 1px,transparent 1px);background-size:22px 22px;mask-image:radial-gradient(ellipse at 50% 42%,#000 0 42%,transparent 76%);}
+.product-stage::after{content:"TeenPle";position:absolute;right:7%;top:10%;font-family:var(--grotesk);font-size:clamp(58px,7.5vw,118px);font-weight:800;letter-spacing:-.055em;color:rgba(18,150,230,.10);line-height:.82;}
+.visual-pair{position:relative;z-index:2;display:grid;grid-template-columns:.78fr 1fr;gap:24px;align-items:center;min-height:0;}
+.service-shot{position:relative;justify-self:end;height:100%;max-height:500px;border-radius:18px;overflow:hidden;box-shadow:0 34px 82px rgba(7,94,156,.24),0 12px 34px rgba(13,24,54,.11);background:#fff;}
+.service-shot img{height:100%;width:auto;display:block;image-rendering:auto;}
+.poster-shot{position:relative;justify-self:start;width:100%;max-width:300px;aspect-ratio:2/3;border-radius:20px;overflow:hidden;background:#fff;border:1px solid rgba(191,229,251,.9);box-shadow:0 28px 70px rgba(7,94,156,.17),0 10px 28px rgba(13,24,54,.08);}
+.poster-shot img{width:100%;height:100%;object-fit:cover;display:block;}
+.stage-notes{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.stage-notes::before{content:"SERVICE FLOW";position:absolute;left:0;top:-24px;font-family:var(--mono);font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--sky-700);}
+.detail-card{position:relative;width:auto;padding:14px 14px 13px;border-radius:14px;background:rgba(255,255,255,.86);border:1px solid rgba(191,229,251,.88);box-shadow:0 14px 30px rgba(7,94,156,.08);backdrop-filter:blur(10px);}
+.detail-card b{display:block;font-size:14px;letter-spacing:-.03em;color:var(--ink);}
+.detail-card span{display:block;margin-top:5px;font-size:11.5px;line-height:1.45;color:var(--ink-3);}
+.float-chip{position:absolute;z-index:4;display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:15px;background:rgba(255,255,255,.9);border:1px solid rgba(191,229,251,.9);box-shadow:0 16px 36px rgba(7,94,156,.12);backdrop-filter:blur(10px);font-weight:800;font-size:12px;letter-spacing:-.02em;}
+.float-chip i{width:9px;height:9px;border-radius:3px;background:var(--sky-500);}
+.float-chip.school{left:11%;top:8%;}
+.float-chip.chat{left:15%;bottom:9%;}
+.float-chip.ops{right:9%;bottom:9%;}
 
-/* ---------- 한눈에 보드 ---------- */
-.board{border-top:1px solid var(--line);background:var(--bg-tint);}
-.board-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(26px,4vw,48px);align-items:start;}
-@media(max-width:900px){.board-grid{grid-template-columns:1fr;gap:32px;}}
-.bcol h2{font-size:clamp(18px,2.4vw,24px);font-weight:800;letter-spacing:-.03em;margin:10px 0 14px;}
-.bcol p.ov{color:var(--ink-2);font-size:14px;line-height:1.72;margin-bottom:12px;}
-.bcol p.ov b{color:var(--ink);font-weight:600;}
+/* SHARED */
+.t-sec{border-top:1px solid var(--line);}
+.t-sec.tint{background:
+  radial-gradient(680px 380px at 12% 20%,rgba(123,92,255,.08),transparent 68%),
+  radial-gradient(680px 380px at 90% 86%,rgba(18,150,230,.15),transparent 70%),
+  linear-gradient(180deg,#f4faff,#eaf5fe);}
+.sec-grid{display:grid;grid-template-columns:.84fr 1.16fr;gap:clamp(32px,5vw,68px);align-items:center;}
+.eyebrow{margin-bottom:10px;}
+.sec-copy h2{font-size:clamp(25px,3.4vw,38px);font-weight:800;letter-spacing:-.045em;line-height:1.15;margin-bottom:14px;}
+.sec-copy p{font-size:15px;line-height:1.78;color:var(--ink-2);}
+.sec-copy p b{color:var(--ink);font-weight:700;}
 
-.arch-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);overflow:hidden;margin-top:8px;}
-.arch-card .ah{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 16px;border-bottom:1px solid var(--line);background:var(--bg-tint);}
-.arch-card .ah .t{font-family:var(--mono);font-size:11.5px;font-weight:600;color:var(--ink-2);display:flex;align-items:center;gap:8px;}
-.arch-card .ah .t .dt{width:7px;height:7px;border-radius:50%;background:var(--sky-400);}
-.arch-card .ah .zoom{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;color:var(--sky-600);background:var(--sky-50);border:1px solid var(--sky-200);padding:4px 10px;border-radius:99px;cursor:zoom-in;transition:.2s;}
-.arch-card .ah .zoom:hover{background:var(--sky-100);}
-.arch-card .ah .zoom svg{width:12px;height:12px;}
-.arch-img{cursor:zoom-in;background:#fff;display:block;}
-.arch-img img{width:100%;max-height:300px;object-fit:contain;padding:12px;display:block;}
+/* OWNERSHIP */
+.scope-list{display:grid;gap:0;background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:0 26px 70px rgba(7,94,156,.12);overflow:hidden;}
+.scope{display:grid;grid-template-columns:auto 1fr;gap:15px;padding:20px 22px;border:0;border-bottom:1px solid var(--line);border-radius:0;background:#fff;box-shadow:none;position:relative;}
+.scope:last-child{border-bottom:0;}
+.scope::after{content:"";position:absolute;left:42px;top:62px;bottom:-18px;width:2px;background:linear-gradient(var(--sky-200),transparent);}
+.scope:last-child::after{display:none;}
+.scope .ico{width:44px;height:44px;border-radius:14px;background:var(--sky-50);border:1px solid var(--sky-200);display:grid;place-items:center;color:var(--sky-600);}
+.scope .ico svg{width:21px;height:21px;}
+.scope .label{font-family:var(--mono);font-size:10.5px;color:var(--sky-600);letter-spacing:.1em;text-transform:uppercase;font-weight:700;}
+.scope h3{font-size:17px;margin:3px 0 6px;letter-spacing:-.02em;}
+.scope p{font-size:13px;line-height:1.62;color:var(--ink-2);}
+.stack-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px;}
+.stack-row span{font-family:var(--mono);font-size:11px;color:var(--sky-700);background:var(--sky-50);border:1px solid var(--sky-200);padding:4px 9px;border-radius:8px;}
+.flow-ops{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:24px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;box-shadow:var(--shadow-sm);}
+.flow-ops .op{position:relative;background:#fff;border:0;border-right:1px solid var(--line);border-radius:0;padding:15px 12px;box-shadow:none;}
+.flow-ops .op:last-child{border-right:0;}
+.flow-ops .op::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);opacity:.75;}
+.flow-ops .op b{display:block;font-size:12.5px;letter-spacing:-.02em;}
+.flow-ops .op span{display:block;font-family:var(--mono);font-size:10px;color:var(--ink-3);margin-top:3px;}
 
-/* features 한눈에 */
-.feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-@media(max-width:520px){.feat-grid{grid-template-columns:1fr;}}
-.feat{display:flex;align-items:flex-start;gap:11px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:13px 15px;box-shadow:var(--shadow-sm);transition:.25s;}
-.feat:hover{transform:translateY(-2px);border-color:var(--sky-200);box-shadow:var(--shadow-md);}
-.feat .fi{width:30px;height:30px;flex:none;border-radius:8px;background:var(--sky-50);border:1px solid var(--sky-200);display:grid;place-items:center;color:var(--sky-600);}
-.feat .fi svg{width:15px;height:15px;}
-.feat h4{font-size:13px;margin-bottom:1px;letter-spacing:-.01em;}
-.feat p{font-size:11.5px;color:var(--ink-3);line-height:1.45;}
+/* ARCHITECTURE */
+.arch-wrap{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:0 32px 82px rgba(7,94,156,.15),0 8px 22px rgba(10,31,51,.05);overflow:hidden;cursor:zoom-in;position:relative;}
+.arch-wrap::before{content:"AWS CLOUD ARCHITECTURE";position:absolute;left:18px;top:14px;z-index:1;font-family:var(--mono);font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--sky-700);background:rgba(255,255,255,.82);border:1px solid var(--sky-200);padding:7px 10px;border-radius:999px;backdrop-filter:blur(8px);}
+.arch-wrap img{width:100%;display:block;padding:28px 14px 14px;max-height:72vh;object-fit:contain;}
+.ops-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px;}
+.ops{padding:16px;border-radius:16px;background:rgba(255,255,255,.84);border:1px solid var(--line);box-shadow:var(--shadow-sm);position:relative;overflow:hidden;}
+.ops::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--grad);}
+.ops b{font-size:14px;}
+.ops p{font-size:12.5px;line-height:1.55;color:var(--ink-3);margin-top:4px;}
 
-/* ---------- next ---------- */
-.nextproj{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:26px 30px;background:linear-gradient(135deg,#f3faff,#fff);border:1px solid var(--sky-200);border-radius:var(--r-lg);transition:.3s;flex-wrap:wrap;}
+/* NEXT */
+.outro{background:#fff;}
+.outro-main{padding:34px 0;border-top:1px solid var(--line);background:linear-gradient(180deg,#f7fbff,#fff);}
+.nextproj{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 28px;background:#fff;border:1px solid var(--sky-200);border-radius:18px;transition:.3s;box-shadow:var(--shadow-sm);flex-wrap:wrap;}
 .nextproj:hover{box-shadow:var(--shadow-md);transform:translateY(-3px);border-color:var(--sky-300);}
 .nextproj .np-l span{font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.1em;text-transform:uppercase;}
 .nextproj .np-l h3{font-size:20px;font-weight:800;letter-spacing:-.03em;margin-top:6px;}
-.nextproj .np-arrow{width:46px;height:46px;border-radius:50%;background:var(--grad);display:grid;place-items:center;color:#fff;flex:none;box-shadow:var(--shadow-sky);}
+.nextproj .np-arrow{width:46px;height:46px;border-radius:14px;background:var(--grad);display:grid;place-items:center;color:#fff;flex:none;box-shadow:var(--shadow-sky);}
 .nextproj .np-arrow svg{width:20px;height:20px;}
+
+@media(max-width:880px){
+  .t-hero,.t-sec{min-height:auto;padding:92px 0 52px;}
+  .hero-grid,.sec-grid{grid-template-columns:1fr;gap:26px;}
+  .hero-art{min-height:520px;}
+  .product-stage{inset:0;gap:18px;padding:26px;border-radius:28px;}
+  .product-stage::after{right:4%;top:6%;font-size:72px;}
+  .visual-pair{grid-template-columns:.8fr 1fr;gap:16px;}
+  .service-shot{height:auto;max-height:none;width:100%;max-width:250px;border-radius:16px;}
+  .service-shot img{height:auto;width:100%;}
+  .poster-shot{max-width:230px;border-radius:16px;}
+  .stage-notes{grid-template-columns:1fr;gap:8px;}
+  .stage-notes::before{font-size:9px;}
+  .detail-card{padding:13px;border-radius:15px;}
+  .detail-card span{font-size:11px;}
+  .float-chip{font-size:10.5px;padding:8px 10px;}
+  .float-chip.school{left:8%;top:6%;}
+  .float-chip.chat{left:12%;bottom:6%;}
+  .float-chip.ops{display:none;}
+  .meta{grid-template-columns:1fr;width:100%;margin-top:22px;}
+  .meta .m{padding:12px 0;}
+  .meta .m+.m{padding-left:0;border-left:0;border-top:1px solid rgba(18,150,230,.14);}
+  .meta .m::before,.meta .m+.m::before{left:0;top:-1px;width:22px;height:2px;}
+  .flow-ops{grid-template-columns:1fr 1fr;}
+  .ops-grid{grid-template-columns:1fr;}
+}
+@media(max-width:520px){
+  .hero-art{min-height:455px;}
+  .product-stage{padding:20px;gap:14px;}
+  .visual-pair{grid-template-columns:.78fr 1fr;gap:12px;align-items:end;}
+  .service-shot{width:100%;justify-self:end;}
+  .poster-shot{width:100%;justify-self:start;}
+  .stage-notes{display:none;}
+}
 </style>
 </head>
-<body>
+<body data-no-footer>
 
-<!-- ============ HERO + 역할 한눈에 ============ -->
-<section class="p-hero" data-screen-label="TeenPle 히어로">
-  <span class="blob"></span>
-  <div class="wrap">
-    <div class="crumb reveal"><a href="../index.html">홈</a> <span>/</span> <span>Project 01</span> <span>/</span> <span style="color:var(--sky-600);">TeenPle</span></div>
-    <div class="hero-row">
-      <div>
-        <span class="badge-live reveal"><span class="dot"></span>LIVE · 실제 배포 서비스</span>
-        <h1 class="reveal d1"><span class="grad-text">Teen</span>Ple</h1>
-        <p class="p-sub reveal d2">고등학생이 학교를 인증하고 익명으로 소통하는 커뮤니티 앱. <b>Flutter 앱부터 Spring 백엔드, AWS 배포까지</b> 직접 맡아 실제 사용자에게 출시·운영한 풀스택 프로젝트입니다.</p>
-        <div class="meta-inline reveal d3">
-          <span class="mi"><b>ROLE</b> Full-stack</span>
-          <span class="mi"><b>TEAM</b> 2인 · 홍왕기·강현민</span>
-          <span class="mi"><b>PLATFORM</b> iOS · Android</span>
-        </div>
-        <div class="repo-row reveal d3">
-          <a class="btn btn-ghost btn-sm" href="https://github.com/TeenPle/FE" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>FE Repo</a>
-          <a class="btn btn-ghost btn-sm" href="https://github.com/TeenPle/BE" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>BE Repo</a>
-        </div>
+<section class="t-hero" id="top" data-screen-label="TeenPle · 소개">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="live reveal"><i></i>RELEASED SERVICE</span>
+      <h1 class="reveal d1">Teen<span>Ple</span></h1>
+      <p class="lead reveal d2">고등학생이 <b>학교 인증</b> 후 익명으로 소통하는 커뮤니티 앱입니다. 2인 팀에서 <b>Flutter 프론트엔드, Java·Spring 백엔드, AWS 인프라</b>까지 전 영역을 맡아 실제 출시와 운영까지 경험했습니다.</p>
+      <div class="meta reveal d3">
+        <div class="m"><div class="k">Team</div><div class="v">2인 팀 프로젝트</div></div>
+        <div class="m"><div class="k">Role</div><div class="v">FE · BE · Infra 전체 구현</div></div>
+        <div class="m"><div class="k">Focus</div><div class="v">서비스 출시·운영 경험</div></div>
       </div>
+      <div class="repo-row reveal d3">
+        <a class="btn btn-primary btn-sm" href="https://github.com/TeenPle/FE" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+          Frontend Repo
+        </a>
+        <a class="btn btn-ghost btn-sm" href="https://github.com/TeenPle/BE" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+          Backend Repo
+        </a>
+      </div>
+    </div>
 
-      <!-- 역할 요약 -->
-      <div class="role-flow reveal d2">
-        <div class="rrow">
-          <span class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></span>
-          <div><div class="rt">Frontend · Flutter</div><h4>iOS / Android 앱 화면</h4>
-            <div class="chips"><span class="chip solid">Flutter</span><span class="chip solid">Dart</span><span class="chip solid">Riverpod</span><span class="chip solid">go_router</span><span class="chip solid">Dio</span></div>
-          </div>
+    <div class="hero-art reveal d2">
+      <div class="product-stage">
+        <div class="visual-pair">
+          <div class="service-shot"><img src="../images/teenple1.png" alt="TeenPle 앱 홈 화면"></div>
+          <div class="poster-shot"><img src="../images/teenple_poster.png" alt="TeenPle 서비스 포스터"></div>
         </div>
-        <div class="rrow">
-          <span class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></span>
-          <div><div class="rt">Backend · Spring Boot</div><h4>인증·게시판·실시간 채팅 API</h4>
-            <div class="chips"><span class="chip solid">Spring Boot</span><span class="chip solid">JWT</span><span class="chip solid">WebSocket</span><span class="chip solid">Redis</span><span class="chip solid">MySQL</span></div>
-          </div>
-        </div>
-        <div class="rrow">
-          <span class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 17.6A5 5 0 0 0 18 8h-1.3A8 8 0 1 0 4 16.2"/><path d="M8 17l4 4 4-4M12 12v9"/></svg></span>
-          <div><div class="rt">Infra · DevOps</div><h4>AWS 배포 · CI/CD 자동화</h4>
-            <div class="chips"><span class="chip solid">AWS EC2</span><span class="chip solid">RDS</span><span class="chip solid">S3</span><span class="chip solid">Docker</span><span class="chip solid">GitHub Actions</span></div>
-          </div>
+        <div class="stage-notes">
+          <div class="detail-card"><b>학교 인증 기반</b><span>학생 단위 접근 흐름과 커뮤니티 진입 구조 설계</span></div>
+          <div class="detail-card"><b>출시까지 연결</b><span>앱 화면, 서버 API, 배포 환경을 한 흐름으로 구현</span></div>
+          <div class="detail-card"><b>운영 경험</b><span>AWS 환경에서 로그와 배포 흐름을 점검</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 한눈에 보드: 개요+아키텍처 / 기능 ============ -->
-<section class="section-pad board" style="padding-top:clamp(40px,6vw,60px);padding-bottom:clamp(40px,6vw,60px);" data-screen-label="개요 · 아키텍처 · 기능">
-  <div class="wrap board-grid">
-    <!-- 왼쪽: 개요 + 아키텍처 -->
-    <div class="bcol">
-      <span class="eyebrow reveal">// OVERVIEW · ARCHITECTURE</span>
-      <h2 class="reveal">학교 인증 기반 익명 커뮤니티</h2>
-      <p class="ov reveal">같은 학교 학생끼리 인증 후 익명으로 글·댓글을 나누고, <b>실시간 1:1 채팅</b>과 푸시 알림으로 소통하는 앱입니다. 2인 팀에서 프론트엔드·백엔드·인프라 전 영역을 맡아 기획부터 배포·운영까지 경험했습니다.</p>
-      <div class="arch-card reveal">
-        <div class="ah">
-          <span class="t"><span class="dt"></span>AWS Cloud Architecture</span>
-          <button class="zoom" id="archZoom" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>크게 보기</button>
-        </div>
-        <div class="arch-img" id="archImg"><img src="../images/teenple-architecture.png" alt="TeenPle AWS 아키텍처 다이어그램"></div>
+<section class="t-sec tint" data-screen-label="역할 · 구현 범위">
+  <div class="wrap sec-grid">
+    <div class="sec-copy reveal">
+      <span class="eyebrow">PROJECT SCOPE</span>
+      <h2>앱부터 서버, 배포까지<br>서비스 전체 흐름을 만들었습니다</h2>
+      <p>TeenPle은 기능 구현에서 끝난 프로젝트가 아니라, <b>모바일 앱 출시와 백엔드 운영</b>까지 이어진 서비스입니다. 사용자 화면, 인증·게시판·채팅 API, AWS 운영 환경까지 한 흐름으로 연결했습니다.</p>
+      <div class="flow-ops">
+        <div class="op"><b>기획</b><span>학생 커뮤니티</span></div>
+        <div class="op"><b>앱 구현</b><span>Flutter</span></div>
+        <div class="op"><b>API</b><span>Spring</span></div>
+        <div class="op"><b>배포</b><span>AWS</span></div>
+        <div class="op"><b>운영</b><span>Logs · CI/CD</span></div>
       </div>
     </div>
-
-    <!-- 오른쪽: 핵심 기능 -->
-    <div class="bcol">
-      <span class="eyebrow reveal">// KEY FEATURES</span>
-      <h2 class="reveal">앱이 제공하는 핵심 기능</h2>
-      <div class="feat-grid reveal">
-        <div class="feat"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 5-3.5 7.5-8.6 9-5.1-1.5-8.4-4-8.4-9V5l8.5-3L21 5z"/></svg></span><div><h4>학교 인증</h4><p>같은 학교 학생만 참여하는 폐쇄형</p></div></div>
-        <div class="feat"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.4 8.4 0 0 1-3.8-.8L3 21l1.9-5a8.4 8.4 0 1 1 16.1-4.5z"/></svg></span><div><h4>실시간 1:1 채팅</h4><p>WebSocket 양방향 메시징</p></div></div>
-        <div class="feat"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></span><div><h4>푸시 알림</h4><p>FCM · Firebase Admin</p></div></div>
-        <div class="feat"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span><div><h4>게시판 · 댓글</h4><p>익명 글·댓글 소통</p></div></div>
-        <div class="feat"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2a2 2 0 0 0 2-2V2M5 11v11M11 2v6a3 3 0 0 0 3 3v11M16 2c-1.5 0-3 2-3 6s1.5 6 3 6"/></svg></span><div><h4>급식 정보</h4><p>학교별 급식 식단 조회</p></div></div>
-        <div class="feat"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><div><h4>시간표</h4><p>학급 시간표 확인</p></div></div>
+    <div class="scope-list">
+      <div class="scope reveal d1">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></span>
+        <div><div class="label">Frontend</div><h3>Flutter 모바일 앱</h3><p>홈 피드, 게시판, 채팅, 급식, 시간표, 내정보 화면을 구성하고 API 연동 흐름을 만들었습니다.</p><div class="stack-row"><span>Flutter</span><span>Dart</span><span>Dio</span><span>Riverpod</span></div></div>
+      </div>
+      <div class="scope reveal d2">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></span>
+        <div><div class="label">Backend</div><h3>Java · Spring API</h3><p>학교 인증, 익명 게시글, 댓글, 실시간 1:1 채팅, 푸시 알림을 위한 API와 데이터 모델을 설계했습니다.</p><div class="stack-row"><span>Spring Boot</span><span>MySQL</span><span>Redis</span><span>WebSocket</span></div></div>
+      </div>
+      <div class="scope reveal d3">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 17.6A5 5 0 0 0 18 8h-1.3A8 8 0 1 0 4 16.2"/><path d="M8 17l4 4 4-4M12 12v9"/></svg></span>
+        <div><div class="label">Infra</div><h3>AWS 배포 · 운영 환경</h3><p>EC2, RDS, S3, Redis, ALB, CloudWatch 기반으로 운영 가능한 백엔드 인프라를 구성했습니다.</p><div class="stack-row"><span>AWS</span><span>Docker</span><span>GitHub Actions</span><span>CloudWatch</span></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ NEXT ============ -->
-<section class="section-pad" style="padding-top:clamp(34px,5vw,52px);padding-bottom:clamp(34px,5vw,52px);">
-  <div class="wrap">
-    <a class="nextproj reveal" href="drone.html">
-      <div class="np-l"><span>Next Project — 02</span><h3>배달의드론</h3></div>
-      <div class="np-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-    </a>
+<section class="t-sec" data-screen-label="아키텍처 · 운영 경험">
+  <div class="wrap sec-grid">
+    <div class="sec-copy reveal">
+      <span class="eyebrow">ARCHITECTURE · OPERATION</span>
+      <h2>출시 이후를 고려한<br>AWS 운영 구조</h2>
+      <p>모바일 앱 요청은 Route 53과 ALB를 거쳐 Spring Boot 서버로 전달됩니다. DB와 캐시는 Private Subnet에 두고, 이미지 저장·유해 이미지 검사·로그 수집까지 운영에 필요한 흐름을 함께 설계했습니다.</p>
+      <div class="ops-grid">
+        <div class="ops"><b>운영 안정성</b><p>ALB, EC2, RDS, Redis를 분리해 서비스 계층과 데이터 계층을 나눴습니다.</p></div>
+        <div class="ops"><b>콘텐츠 안전성</b><p>이미지 업로드는 S3와 Rekognition 흐름으로 검수 가능하게 구성했습니다.</p></div>
+        <div class="ops"><b>배포 자동화</b><p>GitHub Actions와 Docker 기반으로 배포 반복 비용을 줄였습니다.</p></div>
+        <div class="ops"><b>운영 관찰</b><p>CloudWatch Logs로 애플리케이션 로그를 확인할 수 있게 했습니다.</p></div>
+      </div>
+    </div>
+    <div class="arch-wrap reveal d1" id="archImg">
+      <img src="../images/teenple-architecture.png" alt="TeenPle AWS 아키텍처">
+    </div>
   </div>
 </section>
 
-<!-- Lightbox -->
+<section class="outro" data-screen-label="다음 프로젝트">
+  <div class="outro-main">
+    <div class="wrap">
+      <a class="nextproj reveal" href="drone.html">
+        <div class="np-l"><span>Next Project — 02</span><h3>배달의드론</h3></div>
+        <div class="np-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </a>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="wrap footer-top">
+      <div class="f-brand"><div class="ft"><div class="nm">홍왕기 <span>Hong Wang Ki</span></div><div class="tl">안정적인 서버를 설계하는 백엔드 개발자</div></div></div>
+      <div class="f-social">
+        <a class="f-soc" href="https://github.com/hongwangki" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg></a>
+        <a class="f-soc" href="https://leejd8130.tistory.com" target="_blank" rel="noopener" aria-label="Blog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></a>
+        <a class="f-soc" href="mailto:leejd8130@naver.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2.5"/><path d="m3 6 9 6 9-6"/></svg></a>
+      </div>
+    </div>
+    <div class="wrap footer-bottom">
+      <span>© 2026 Hong Wang Ki — Backend Developer Portfolio</span>
+      <a href="#top">맨 위로 ↑</a>
+    </div>
+  </footer>
+</section>
+
 <div class="lightbox" id="lightbox">
   <button class="lb-close" id="lbClose" aria-label="닫기">✕</button>
-  <img src="../images/teenple-architecture.png" alt="TeenPle AWS 아키텍처 다이어그램 확대">
+  <img src="../images/teenple-architecture.png" id="lbImg" alt="TeenPle AWS 아키텍처 확대">
 </div>
 
 <script src="../js/site.js"></script>
 <script>
   (function(){
     const lb=document.getElementById('lightbox');
-    const open=()=>{lb.classList.add('open');document.body.style.overflow='hidden';};
     const hide=()=>{lb.classList.remove('open');document.body.style.overflow='';};
-    document.getElementById('archImg').addEventListener('click',open);
-    document.getElementById('archZoom').addEventListener('click',e=>{e.stopPropagation();open();});
+    document.getElementById('archImg').addEventListener('click',()=>{lb.classList.add('open');document.body.style.overflow='hidden';});
     lb.addEventListener('click',e=>{if(e.target===lb||e.target.id==='lbClose')hide();});
     document.addEventListener('keydown',e=>{if(e.key==='Escape')hide();});
   })();
