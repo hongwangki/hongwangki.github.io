@@ -14,12 +14,12 @@ html{scroll-padding-top:0;scroll-snap-type:y mandatory;}
 .home-hero,#experience,#projects,#contact{scroll-snap-align:start;scroll-snap-stop:always;}
 /* ============ HERO / ABOUT ============ */
 .home-hero{position:relative;min-height:100svh;display:flex;align-items:center;
-  padding:clamp(56px,7vw,84px) 0 clamp(40px,5vw,56px);overflow:hidden;
+  padding:clamp(56px,7vw,84px) 0 clamp(70px,7vw,96px);overflow:hidden;
   background:
     radial-gradient(ellipse 58% 50% at 8% 14%,rgba(227,243,253,.82),transparent 72%),
     radial-gradient(ellipse 52% 48% at 94% 86%,rgba(234,245,254,.72),transparent 74%),
     linear-gradient(135deg,#fbfdff 0%,#fff 52%,#fafdff 100%);}
-@media(max-width:880px){.home-hero{min-height:0;}}
+@media(max-width:880px){.home-hero{min-height:0;padding-bottom:clamp(36px,5vw,52px);}.techstrip{position:static;}}
 .home-hero .blob,.home-hero .hgrid{display:none;}
 .hh-grid{position:relative;z-index:1;width:100%;display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(38px,5vw,64px);align-items:center;}
 @media(max-width:880px){.hh-grid{grid-template-columns:1fr;gap:26px;}}
@@ -58,7 +58,7 @@ html{scroll-padding-top:0;scroll-snap-type:y mandatory;}
 @media(max-width:520px){.pcard .pfacts .row{gap:9px;font-size:12.5px;}.pcard .pfacts .k{font-size:10.5px;width:44px;}}
 
 /* ============ tech marquee (slim) ============ */
-.techstrip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-tint);padding:15px 0;overflow:hidden;}
+.techstrip{position:absolute;left:0;right:0;bottom:0;z-index:1;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-tint);padding:14px 0;overflow:hidden;}
 .marquee{display:flex;gap:42px;white-space:nowrap;width:max-content;animation:scrollx 28s linear infinite;}
 .marquee span{font-family:var(--grotesk);font-weight:600;font-size:16px;color:var(--ink-3);letter-spacing:-.02em;display:inline-flex;align-items:center;gap:42px;}
 .marquee span::after{content:"◆";color:var(--sky-300);font-size:9px;}
@@ -277,14 +277,14 @@ html{scroll-padding-top:0;scroll-snap-type:y mandatory;}
       </div>
     </div>
   </div>
-</header>
 
-<div class="techstrip" aria-hidden="true">
-  <div class="marquee">
-    <span>Java</span><span>C</span><span>C++</span><span>Flutter</span><span>Spring Boot</span><span>JPA</span><span>MySQL</span><span>Redis</span><span>AWS</span><span>Docker</span><span>k6</span><span>Git</span>
-    <span>Java</span><span>C</span><span>C++</span><span>Flutter</span><span>Spring Boot</span><span>JPA</span><span>MySQL</span><span>Redis</span><span>AWS</span><span>Docker</span><span>k6</span><span>Git</span>
+  <div class="techstrip" aria-hidden="true">
+    <div class="marquee">
+      <span>Java</span><span>C</span><span>C++</span><span>Flutter</span><span>Spring Boot</span><span>JPA</span><span>MySQL</span><span>Redis</span><span>AWS</span><span>Docker</span><span>k6</span><span>Git</span>
+      <span>Java</span><span>C</span><span>C++</span><span>Flutter</span><span>Spring Boot</span><span>JPA</span><span>MySQL</span><span>Redis</span><span>AWS</span><span>Docker</span><span>k6</span><span>Git</span>
+    </div>
   </div>
-</div>
+</header>
 
 <!-- ============ EXPERIENCE · STRENGTH ============ -->
 <section class="section-pad" id="experience">
