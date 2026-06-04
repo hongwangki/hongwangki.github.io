@@ -14,6 +14,7 @@ html{scroll-snap-type:y mandatory;scroll-padding-top:0;}
 @media(max-width:880px),(max-height:620px){html{scroll-snap-type:none;}}
 .t-hero,.t-sec,.outro{scroll-snap-align:start;scroll-snap-stop:always;}
 .t-hero,.t-sec{min-height:100svh;display:flex;align-items:center;overflow:hidden;position:relative;padding:88px 0 48px;}
+.t-hero{padding:78px 0 38px;}
 .t-hero>.wrap,.t-sec>.wrap{width:100%;position:relative;z-index:1;}
 
 /* INTRO */
@@ -24,15 +25,15 @@ html{scroll-snap-type:y mandatory;scroll-padding-top:0;}
 .t-hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(18,150,230,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(18,150,230,.055) 1px,transparent 1px);background-size:42px 42px;opacity:.48;mask-image:radial-gradient(ellipse at 74% 48%,#000 0 48%,transparent 78%);}
 .t-hero::after{content:"";position:absolute;right:-10%;top:12%;width:54vw;height:54vw;max-width:760px;max-height:760px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.58),rgba(18,150,230,.055) 48%,transparent 70%);border:1px solid rgba(18,150,230,.10);}
 .t-hero .wrap{max-width:1320px;}
-.hero-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(42px,5.4vw,84px);align-items:center;}
-.hero-copy h1{font-family:var(--grotesk);font-size:clamp(36px,4.8vw,66px);font-weight:700;letter-spacing:-.048em;line-height:.98;margin:14px 0 18px;}
+.hero-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(36px,4.8vw,72px);align-items:center;}
+.hero-copy h1{font-family:var(--grotesk);font-size:clamp(34px,4.45vw,60px);font-weight:700;letter-spacing:-.048em;line-height:.98;margin:12px 0 16px;}
 .hero-copy h1 span{color:var(--sky-500);}
-.hero-copy .lead{max-width:570px;font-size:clamp(14.5px,1.22vw,16px);line-height:1.76;color:var(--ink-2);border-left:3px solid var(--sky-500);padding-left:20px;}
+.hero-copy .lead{max-width:560px;font-size:clamp(14px,1.12vw,15.5px);line-height:1.7;color:var(--ink-2);border-left:3px solid var(--sky-500);padding-left:18px;}
 .hero-copy .lead b{color:var(--ink);font-weight:700;}
 .live{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.08em;color:#0a7d55;background:#effaf4;border:1px solid #bdebd1;padding:6px 12px;border-radius:99px;}
 .live i{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 0 rgba(34,197,94,.55);animation:pulse 2s infinite;}
 @keyframes pulse{70%{box-shadow:0 0 0 7px rgba(34,197,94,0);}}
-.meta{display:grid;grid-template-columns:repeat(3,auto);gap:0;margin:24px 0 22px;max-width:650px;width:max-content;border-top:1px solid rgba(18,150,230,.26);border-bottom:1px solid rgba(18,150,230,.18);}
+.meta{display:grid;grid-template-columns:repeat(3,auto);gap:0;margin:20px 0 18px;max-width:650px;width:max-content;border-top:1px solid rgba(18,150,230,.26);border-bottom:1px solid rgba(18,150,230,.18);}
 .meta .m{position:relative;padding:13px 22px 13px 0;background:transparent;border:0;box-shadow:none;backdrop-filter:none;min-height:0;min-width:0;}
 .meta .m+.m{padding-left:22px;border-left:1px solid rgba(18,150,230,.16);}
 .meta .m::before{content:"";position:absolute;left:0;top:-1px;width:24px;height:2px;border-radius:99px;background:var(--sky-500);box-shadow:none;}
@@ -41,23 +42,23 @@ html{scroll-snap-type:y mandatory;scroll-padding-top:0;}
 .meta .k{font-family:var(--mono);font-size:10px;color:var(--sky-700);letter-spacing:.12em;text-transform:uppercase;font-weight:800;}
 .meta .v{font-size:13.5px;font-weight:800;color:var(--ink);margin-top:5px;line-height:1.35;}
 .repo-row{display:flex;gap:9px;flex-wrap:wrap;}
-.t-hero .repo-row .btn{padding:15px 25px;font-size:15px;box-shadow:var(--shadow-md);}
+.t-hero .repo-row .btn{padding:13px 22px;font-size:14px;box-shadow:var(--shadow-md);}
 .t-hero .repo-row .btn svg{width:18px;height:18px;}
-.hero-art{position:relative;min-height:min(58vw,650px);z-index:1;}
+.hero-art{position:relative;min-height:min(56vw,625px);z-index:1;}
 .hero-art::before{content:"";position:absolute;left:15%;right:11%;bottom:3%;height:20%;border-radius:999px;background:radial-gradient(ellipse,rgba(7,94,156,.18),transparent 72%);filter:blur(16px);}
-.product-stage{position:absolute;inset:0;display:grid;grid-template-rows:1fr auto;gap:22px;padding:38px 42px 34px;border-radius:40px;background:
+.product-stage{position:absolute;inset:0;display:grid;grid-template-rows:1fr auto;gap:20px;padding:34px 38px 30px;border-radius:38px;background:
   radial-gradient(420px 300px at 48% 34%,rgba(18,150,230,.16),transparent 72%),
   radial-gradient(360px 260px at 82% 76%,rgba(139,92,246,.10),transparent 70%),
   linear-gradient(145deg,rgba(255,255,255,.72),rgba(239,248,255,.38));border:1px solid rgba(191,229,251,.82);box-shadow:0 38px 100px rgba(7,94,156,.13);overflow:hidden;}
 .product-stage::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(18,150,230,.12) 1px,transparent 1px);background-size:22px 22px;mask-image:radial-gradient(ellipse at 50% 42%,#000 0 42%,transparent 76%);}
 .product-stage::after{content:"TeenPle";position:absolute;right:7%;top:10%;font-family:var(--grotesk);font-size:clamp(58px,7.5vw,118px);font-weight:800;letter-spacing:-.055em;color:rgba(18,150,230,.10);line-height:.82;}
 .visual-pair{position:relative;z-index:2;display:grid;grid-template-columns:.78fr 1fr;gap:24px;align-items:center;min-height:0;}
-.service-shot{position:relative;justify-self:end;height:100%;max-height:500px;border-radius:18px;overflow:hidden;box-shadow:0 34px 82px rgba(7,94,156,.24),0 12px 34px rgba(13,24,54,.11);background:#fff;}
+.service-shot{position:relative;justify-self:end;height:100%;max-height:482px;border-radius:18px;overflow:hidden;box-shadow:0 34px 82px rgba(7,94,156,.24),0 12px 34px rgba(13,24,54,.11);background:#fff;}
 .service-shot img{height:100%;width:auto;display:block;image-rendering:auto;}
-.poster-shot{position:relative;justify-self:start;width:100%;max-width:300px;aspect-ratio:2/3;border-radius:20px;overflow:hidden;background:#fff;border:1px solid rgba(191,229,251,.9);box-shadow:0 28px 70px rgba(7,94,156,.17),0 10px 28px rgba(13,24,54,.08);}
+.poster-shot{position:relative;justify-self:start;width:100%;max-width:295px;aspect-ratio:2/3;border-radius:20px;overflow:hidden;background:#fff;border:1px solid rgba(191,229,251,.9);box-shadow:0 28px 70px rgba(7,94,156,.17),0 10px 28px rgba(13,24,54,.08);}
 .poster-shot img{width:100%;height:100%;object-fit:cover;display:block;}
 .stage-notes{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
-.stage-notes::before{content:"SERVICE FLOW";position:absolute;left:0;top:-24px;font-family:var(--mono);font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--sky-700);}
+.stage-notes::before{content:"PRODUCT SCOPE";position:absolute;left:0;top:-24px;font-family:var(--mono);font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--sky-700);}
 .detail-card{position:relative;width:auto;padding:14px 14px 13px;border-radius:14px;background:rgba(255,255,255,.86);border:1px solid rgba(191,229,251,.88);box-shadow:0 14px 30px rgba(7,94,156,.08);backdrop-filter:blur(10px);}
 .detail-card b{display:block;font-size:14px;letter-spacing:-.03em;color:var(--ink);}
 .detail-card span{display:block;margin-top:5px;font-size:11.5px;line-height:1.45;color:var(--ink-3);}
@@ -73,54 +74,68 @@ html{scroll-snap-type:y mandatory;scroll-padding-top:0;}
   radial-gradient(680px 380px at 12% 20%,rgba(123,92,255,.08),transparent 68%),
   radial-gradient(680px 380px at 90% 86%,rgba(18,150,230,.15),transparent 70%),
   linear-gradient(180deg,#f4faff,#eaf5fe);}
+.build-sec{padding:72px 0 30px;}
 .sec-grid{display:grid;grid-template-columns:.84fr 1.16fr;gap:clamp(32px,5vw,68px);align-items:center;}
 .eyebrow{margin-bottom:10px;}
 .sec-copy h2{font-size:clamp(25px,3.4vw,38px);font-weight:800;letter-spacing:-.045em;line-height:1.15;margin-bottom:14px;}
 .sec-copy p{font-size:15px;line-height:1.78;color:var(--ink-2);}
 .sec-copy p b{color:var(--ink);font-weight:700;}
 
-/* OWNERSHIP */
-.scope-list{display:grid;gap:0;background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:0 26px 70px rgba(7,94,156,.12);overflow:hidden;}
-.scope{display:grid;grid-template-columns:auto 1fr;gap:15px;padding:20px 22px;border:0;border-bottom:1px solid var(--line);border-radius:0;background:#fff;box-shadow:none;position:relative;}
-.scope:last-child{border-bottom:0;}
-.scope::after{content:"";position:absolute;left:42px;top:62px;bottom:-18px;width:2px;background:linear-gradient(var(--sky-200),transparent);}
-.scope:last-child::after{display:none;}
-.scope .ico{width:44px;height:44px;border-radius:14px;background:var(--sky-50);border:1px solid var(--sky-200);display:grid;place-items:center;color:var(--sky-600);}
-.scope .ico svg{width:21px;height:21px;}
-.scope .label{font-family:var(--mono);font-size:10.5px;color:var(--sky-600);letter-spacing:.1em;text-transform:uppercase;font-weight:700;}
-.scope h3{font-size:17px;margin:3px 0 6px;letter-spacing:-.02em;}
-.scope p{font-size:13px;line-height:1.62;color:var(--ink-2);}
-.stack-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px;}
-.stack-row span{font-family:var(--mono);font-size:11px;color:var(--sky-700);background:var(--sky-50);border:1px solid var(--sky-200);padding:4px 9px;border-radius:8px;}
-.flow-ops{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:24px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;box-shadow:var(--shadow-sm);}
-.flow-ops .op{position:relative;background:#fff;border:0;border-right:1px solid var(--line);border-radius:0;padding:15px 12px;box-shadow:none;}
-.flow-ops .op:last-child{border-right:0;}
-.flow-ops .op::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);opacity:.75;}
-.flow-ops .op b{display:block;font-size:12.5px;letter-spacing:-.02em;}
-.flow-ops .op span{display:block;font-family:var(--mono);font-size:10px;color:var(--ink-3);margin-top:3px;}
-
+/* FULL STACK BUILD — 3 core cards + one-line flow */
+.fs{display:grid;gap:clamp(28px,4vw,46px);max-width:1080px;margin:0 auto;}
+.fs-head{text-align:center;max-width:700px;margin:0 auto;}
+.fs-head .eyebrow{margin-bottom:12px;}
+.fs-head h2{font-size:clamp(26px,3.6vw,40px);font-weight:800;letter-spacing:-.045em;line-height:1.14;margin:0 0 16px;}
+.fs-head h2 span{color:var(--sky-500);}
+.fs-head p{font-size:14.5px;line-height:1.75;color:var(--ink-2);max-width:580px;margin:0 auto;}
+.fs-head p b{color:var(--ink);font-weight:700;}
+.fs-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,24px);}
+.fs-card{position:relative;padding:30px 26px 26px;border-radius:20px;background:#fff;border:1px solid var(--line);box-shadow:0 18px 48px rgba(7,94,156,.09);overflow:hidden;transition:transform .3s,box-shadow .3s;}
+.fs-card:hover{transform:translateY(-4px);box-shadow:0 26px 62px rgba(7,94,156,.14);}
+.fs-card::before{content:"";position:absolute;left:26px;top:0;width:40px;height:3px;border-radius:0 0 99px 99px;background:var(--sky-500);}
+.fs-card::after{content:"";position:absolute;right:-44px;top:-44px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(18,150,230,.10),transparent 70%);filter:blur(6px);}
+.fs-num{position:relative;display:block;font-family:var(--mono);font-size:13px;font-weight:800;letter-spacing:.12em;color:var(--sky-600);margin-bottom:14px;}
+.fs-card h3{position:relative;font-size:20px;font-weight:800;letter-spacing:-.03em;color:var(--ink);margin-bottom:11px;}
+.fs-card p{position:relative;font-size:13.5px;line-height:1.62;color:var(--ink-2);margin-bottom:18px;}
+.fs-tags{position:relative;display:flex;flex-wrap:wrap;gap:6px;}
+.fs-tags span{font-family:var(--mono);font-size:10.5px;color:var(--sky-700);background:var(--sky-50);border:1px solid var(--sky-200);padding:4px 9px;border-radius:8px;}
+.fs-flow{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;padding:18px 22px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm);}
+.fs-flow>span{font-size:13.5px;font-weight:700;letter-spacing:-.02em;color:var(--ink);padding:4px 2px;}
+.fs-flow i{display:inline-block;position:relative;width:26px;height:2px;margin:0 14px;border-radius:99px;background:linear-gradient(90deg,var(--sky-300),var(--sky-500));}
+.fs-flow i::after{content:"";position:absolute;right:-1px;top:50%;width:6px;height:6px;border-top:2px solid var(--sky-500);border-right:2px solid var(--sky-500);transform:translateY(-50%) rotate(45deg);}
 /* ARCHITECTURE */
-.arch-wrap{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:0 32px 82px rgba(7,94,156,.15),0 8px 22px rgba(10,31,51,.05);overflow:hidden;cursor:zoom-in;position:relative;}
+.arch-sec{padding:74px 0 22px;background:#fff;}
+.arch-layout{display:grid;grid-template-columns:minmax(260px,.52fr) minmax(0,1.96fr);gap:clamp(24px,3.4vw,46px);align-items:center;width:100%;max-width:1280px;}
+.arch-panel{display:grid;gap:11px;max-width:350px;}
+.arch-panel .eyebrow{margin-bottom:2px;}
+.arch-panel h2{font-size:clamp(23px,2.25vw,29px);font-weight:800;letter-spacing:-.035em;line-height:1.08;margin:5px 0 0;}
+.arch-panel p{font-size:12.8px;line-height:1.48;color:var(--ink-2);}
+.arch-panel p b{color:var(--ink);font-weight:700;}
+.arch-wrap{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:0 28px 72px rgba(7,94,156,.13),0 8px 22px rgba(10,31,51,.05);overflow:hidden;cursor:zoom-in;position:relative;}
 .arch-wrap::before{content:"AWS CLOUD ARCHITECTURE";position:absolute;left:18px;top:14px;z-index:1;font-family:var(--mono);font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--sky-700);background:rgba(255,255,255,.82);border:1px solid var(--sky-200);padding:7px 10px;border-radius:999px;backdrop-filter:blur(8px);}
-.arch-wrap img{width:100%;display:block;padding:28px 14px 14px;max-height:72vh;object-fit:contain;}
-.ops-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px;}
-.ops{padding:16px;border-radius:16px;background:rgba(255,255,255,.84);border:1px solid var(--line);box-shadow:var(--shadow-sm);position:relative;overflow:hidden;}
-.ops::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--grad);}
-.ops b{font-size:14px;}
-.ops p{font-size:12.5px;line-height:1.55;color:var(--ink-3);margin-top:4px;}
+.arch-wrap img{width:100%;height:auto;display:block;padding:32px 12px 12px;max-height:calc(100svh - 128px);object-fit:contain;}
+.arch-points{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--line);}
+.arch-point{position:relative;min-height:0;padding:9px 0 9px 15px;border-bottom:1px solid var(--line);background:transparent;overflow:hidden;}
+.arch-point:last-child{border-bottom:0;}
+.arch-point::before{content:"";position:absolute;left:0;top:13px;width:4px;height:24px;border-radius:99px;background:var(--grad);}
+.arch-point small{display:block;font-family:var(--mono);font-size:8.5px;font-weight:800;letter-spacing:.13em;color:var(--sky-700);}
+.arch-point b{display:block;margin-top:4px;font-size:13.2px;letter-spacing:-.02em;color:var(--ink);}
+.arch-point span{display:block;margin-top:4px;font-size:11px;line-height:1.33;color:var(--ink-3);}
 
 /* NEXT */
 .outro{background:#fff;}
-.outro-main{padding:34px 0;border-top:1px solid var(--line);background:linear-gradient(180deg,#f7fbff,#fff);}
-.nextproj{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 28px;background:#fff;border:1px solid var(--sky-200);border-radius:18px;transition:.3s;box-shadow:var(--shadow-sm);flex-wrap:wrap;}
+.outro-main{padding:22px 0 30px;border-top:1px solid var(--line);background:linear-gradient(180deg,#f7fbff,#fff);}
+.outro-main .wrap{max-width:860px;}
+.nextproj{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 20px;background:#fff;border:1px solid var(--sky-200);border-radius:16px;transition:.3s;box-shadow:var(--shadow-sm);flex-wrap:wrap;}
 .nextproj:hover{box-shadow:var(--shadow-md);transform:translateY(-3px);border-color:var(--sky-300);}
-.nextproj .np-l span{font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.1em;text-transform:uppercase;}
-.nextproj .np-l h3{font-size:20px;font-weight:800;letter-spacing:-.03em;margin-top:6px;}
-.nextproj .np-arrow{width:46px;height:46px;border-radius:14px;background:var(--grad);display:grid;place-items:center;color:#fff;flex:none;box-shadow:var(--shadow-sky);}
-.nextproj .np-arrow svg{width:20px;height:20px;}
+.nextproj .np-l span{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.1em;text-transform:uppercase;}
+.nextproj .np-l h3{font-size:17px;font-weight:800;letter-spacing:-.03em;margin-top:4px;}
+.nextproj .np-arrow{width:38px;height:38px;border-radius:12px;background:var(--grad);display:grid;place-items:center;color:#fff;flex:none;box-shadow:var(--shadow-sky);}
+.nextproj .np-arrow svg{width:18px;height:18px;}
 
 @media(max-width:880px){
   .t-hero,.t-sec{min-height:auto;padding:92px 0 52px;}
+  .build-sec{padding:92px 0 52px;}
   .hero-grid,.sec-grid{grid-template-columns:1fr;gap:26px;}
   .hero-art{min-height:520px;}
   .product-stage{inset:0;gap:18px;padding:26px;border-radius:28px;}
@@ -141,8 +156,13 @@ html{scroll-snap-type:y mandatory;scroll-padding-top:0;}
   .meta .m{padding:12px 0;}
   .meta .m+.m{padding-left:0;border-left:0;border-top:1px solid rgba(18,150,230,.14);}
   .meta .m::before,.meta .m+.m::before{left:0;top:-1px;width:22px;height:2px;}
-  .flow-ops{grid-template-columns:1fr 1fr;}
-  .ops-grid{grid-template-columns:1fr;}
+  .fs-cards{grid-template-columns:1fr;}
+  .fs-flow{flex-direction:column;gap:6px;padding:20px;}
+  .fs-flow i{transform:rotate(90deg);margin:5px 0;}
+  .arch-sec{padding:92px 0 52px;}
+  .arch-layout{grid-template-columns:1fr;gap:18px;}
+  .arch-wrap img{max-height:none;}
+  .arch-points{grid-template-columns:1fr;}
 }
 @media(max-width:520px){
   .hero-art{min-height:455px;}
@@ -161,11 +181,11 @@ html{scroll-snap-type:y mandatory;scroll-padding-top:0;}
     <div class="hero-copy">
       <span class="live reveal"><i></i>RELEASED SERVICE</span>
       <h1 class="reveal d1">Teen<span>Ple</span></h1>
-      <p class="lead reveal d2">고등학생이 <b>학교 인증</b> 후 익명으로 소통하는 커뮤니티 앱입니다. 2인 팀에서 <b>Flutter 프론트엔드, Java·Spring 백엔드, AWS 인프라</b>까지 전 영역을 맡아 실제 출시와 운영까지 경험했습니다.</p>
+      <p class="lead reveal d2">같은 고등학교 학생들이 모여 잡담, 학교생활 정보, 질문, 졸업생의 도움을 주고받는 커뮤니티 앱입니다. 저는 <b>Flutter 앱 화면부터 Spring 백엔드 API, AWS 배포와 운영 환경</b>까지 서비스 전체 흐름을 직접 구현했습니다.</p>
       <div class="meta reveal d3">
-        <div class="m"><div class="k">Team</div><div class="v">2인 팀 프로젝트</div></div>
-        <div class="m"><div class="k">Role</div><div class="v">FE · BE · Infra 전체 구현</div></div>
-        <div class="m"><div class="k">Focus</div><div class="v">서비스 출시·운영 경험</div></div>
+        <div class="m"><div class="k">Product</div><div class="v">고등학생 익명 커뮤니티</div></div>
+        <div class="m"><div class="k">Role</div><div class="v">Flutter · Spring · AWS</div></div>
+        <div class="m"><div class="k">Result</div><div class="v">출시 가능한 서비스 흐름 완성</div></div>
       </div>
       <div class="repo-row reveal d3">
         <a class="btn btn-primary btn-sm" href="https://github.com/TeenPle/FE" target="_blank" rel="noopener">
@@ -186,57 +206,67 @@ html{scroll-snap-type:y mandatory;scroll-padding-top:0;}
           <div class="poster-shot"><img src="../images/teenple_poster.png" alt="TeenPle 서비스 포스터"></div>
         </div>
         <div class="stage-notes">
-          <div class="detail-card"><b>학교 인증 기반</b><span>학생 단위 접근 흐름과 커뮤니티 진입 구조 설계</span></div>
-          <div class="detail-card"><b>출시까지 연결</b><span>앱 화면, 서버 API, 배포 환경을 한 흐름으로 구현</span></div>
-          <div class="detail-card"><b>운영 경험</b><span>AWS 환경에서 로그와 배포 흐름을 점검</span></div>
+          <div class="detail-card"><b>학교별 커뮤니티</b><span>같은 학교 안에서 잡담, 질문, 정보 공유가 이어지는 구조</span></div>
+          <div class="detail-card"><b>졸업생 도움</b><span>재학생이 학교생활과 진로 정보를 편하게 물어볼 수 있는 공간</span></div>
+          <div class="detail-card"><b>전체 구현</b><span>Flutter, Spring, AWS 배포까지 한 흐름으로 구성</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="t-sec tint" data-screen-label="역할 · 구현 범위">
-  <div class="wrap sec-grid">
-    <div class="sec-copy reveal">
-      <span class="eyebrow">PROJECT SCOPE</span>
-      <h2>앱부터 서버, 배포까지<br>서비스 전체 흐름을 만들었습니다</h2>
-      <p>TeenPle은 기능 구현에서 끝난 프로젝트가 아니라, <b>모바일 앱 출시와 백엔드 운영</b>까지 이어진 서비스입니다. 사용자 화면, 인증·게시판·채팅 API, AWS 운영 환경까지 한 흐름으로 연결했습니다.</p>
-      <div class="flow-ops">
-        <div class="op"><b>기획</b><span>학생 커뮤니티</span></div>
-        <div class="op"><b>앱 구현</b><span>Flutter</span></div>
-        <div class="op"><b>API</b><span>Spring</span></div>
-        <div class="op"><b>배포</b><span>AWS</span></div>
-        <div class="op"><b>운영</b><span>Logs · CI/CD</span></div>
-      </div>
+<section class="t-sec tint build-sec" data-screen-label="역할 · 구현 범위">
+  <div class="wrap fs">
+    <div class="fs-head reveal">
+      <span class="eyebrow">FULL STACK BUILD</span>
+      <h2>앱 화면부터 AWS 배포까지<br><span>전체 서비스를 직접 구현했습니다</span></h2>
+      <p>사용자가 보는 <b>앱 화면</b>, 요청을 처리하는 <b>서버</b>, 실제 <b>배포·운영 환경</b>까지 — TeenPle의 모든 흐름을 혼자서 만들었습니다.</p>
     </div>
-    <div class="scope-list">
-      <div class="scope reveal d1">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></span>
-        <div><div class="label">Frontend</div><h3>Flutter 모바일 앱</h3><p>홈 피드, 게시판, 채팅, 급식, 시간표, 내정보 화면을 구성하고 API 연동 흐름을 만들었습니다.</p><div class="stack-row"><span>Flutter</span><span>Dart</span><span>Dio</span><span>Riverpod</span></div></div>
-      </div>
-      <div class="scope reveal d2">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></span>
-        <div><div class="label">Backend</div><h3>Java · Spring API</h3><p>학교 인증, 익명 게시글, 댓글, 실시간 1:1 채팅, 푸시 알림을 위한 API와 데이터 모델을 설계했습니다.</p><div class="stack-row"><span>Spring Boot</span><span>MySQL</span><span>Redis</span><span>WebSocket</span></div></div>
-      </div>
-      <div class="scope reveal d3">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 17.6A5 5 0 0 0 18 8h-1.3A8 8 0 1 0 4 16.2"/><path d="M8 17l4 4 4-4M12 12v9"/></svg></span>
-        <div><div class="label">Infra</div><h3>AWS 배포 · 운영 환경</h3><p>EC2, RDS, S3, Redis, ALB, CloudWatch 기반으로 운영 가능한 백엔드 인프라를 구성했습니다.</p><div class="stack-row"><span>AWS</span><span>Docker</span><span>GitHub Actions</span><span>CloudWatch</span></div></div>
-      </div>
+
+    <div class="fs-cards">
+      <article class="fs-card reveal d1">
+        <span class="fs-num">01</span>
+        <h3>Flutter 앱 구현</h3>
+        <p>홈 피드·게시판·채팅 화면을 만들고<br>인증 상태에 따른 접근 흐름을 제어했습니다.</p>
+        <div class="fs-tags"><span>Flutter</span><span>Dart</span><span>Riverpod</span></div>
+      </article>
+      <article class="fs-card reveal d2">
+        <span class="fs-num">02</span>
+        <h3>Spring API 설계</h3>
+        <p>회원·게시글·채팅 API를 설계하고<br>앱에 필요한 응답 구조로 연결했습니다.</p>
+        <div class="fs-tags"><span>Spring Boot</span><span>MySQL</span><span>Redis</span></div>
+      </article>
+      <article class="fs-card reveal d3">
+        <span class="fs-num">03</span>
+        <h3>AWS 배포·운영</h3>
+        <p>EC2·RDS·S3로 인프라를 구성하고<br>배포와 운영 흐름을 직접 다뤘습니다.</p>
+        <div class="fs-tags"><span>AWS</span><span>Docker</span><span>GitHub Actions</span></div>
+      </article>
+    </div>
+
+    <div class="fs-flow reveal d3">
+      <span>앱 화면</span><i></i>
+      <span>API 요청</span><i></i>
+      <span>서버 처리</span><i></i>
+      <span>데이터 저장</span><i></i>
+      <span>배포·운영</span>
     </div>
   </div>
 </section>
 
-<section class="t-sec" data-screen-label="아키텍처 · 운영 경험">
-  <div class="wrap sec-grid">
-    <div class="sec-copy reveal">
-      <span class="eyebrow">ARCHITECTURE · OPERATION</span>
-      <h2>출시 이후를 고려한<br>AWS 운영 구조</h2>
-      <p>모바일 앱 요청은 Route 53과 ALB를 거쳐 Spring Boot 서버로 전달됩니다. DB와 캐시는 Private Subnet에 두고, 이미지 저장·유해 이미지 검사·로그 수집까지 운영에 필요한 흐름을 함께 설계했습니다.</p>
-      <div class="ops-grid">
-        <div class="ops"><b>운영 안정성</b><p>ALB, EC2, RDS, Redis를 분리해 서비스 계층과 데이터 계층을 나눴습니다.</p></div>
-        <div class="ops"><b>콘텐츠 안전성</b><p>이미지 업로드는 S3와 Rekognition 흐름으로 검수 가능하게 구성했습니다.</p></div>
-        <div class="ops"><b>배포 자동화</b><p>GitHub Actions와 Docker 기반으로 배포 반복 비용을 줄였습니다.</p></div>
-        <div class="ops"><b>운영 관찰</b><p>CloudWatch Logs로 애플리케이션 로그를 확인할 수 있게 했습니다.</p></div>
+<section class="t-sec arch-sec" data-screen-label="아키텍처 · 운영 경험">
+  <div class="wrap arch-layout">
+    <div class="arch-panel reveal">
+      <div>
+        <span class="eyebrow">ARCHITECTURE</span>
+        <h2>AWS 기반 서비스<br>인프라 설계</h2>
+      </div>
+      <p>TeenPle의 <b>사용자 요청, 이미지 검수, 로그 수집, 운영자 접근</b> 흐름을 분리해 보안성과 운영 안정성을 고려한 백엔드 인프라를 설계했습니다.</p>
+      <div class="arch-points">
+        <div class="arch-point"><small>TRAFFIC</small><b>Route 53 · ALB</b><span>사용자 요청을 ALB로 받고 Private App Subnet의 EC2로 분산했습니다.</span></div>
+        <div class="arch-point"><small>SECURITY</small><b>Subnet 분리</b><span>EC2, RDS, Redis를 Private Subnet에 배치해 외부 직접 접근을 제한했습니다.</span></div>
+        <div class="arch-point"><small>IMAGE SAFETY</small><b>Rekognition · S3</b><span>유해 이미지를 검사한 뒤 통과한 이미지만 S3에 저장하도록 구성했습니다.</span></div>
+        <div class="arch-point"><small>OPERATION</small><b>CloudWatch · SSM</b><span>로그 확인과 서버 운영 접근을 CloudWatch Logs와 Session Manager로 관리했습니다.</span></div>
       </div>
     </div>
     <div class="arch-wrap reveal d1" id="archImg">
@@ -254,20 +284,6 @@ html{scroll-snap-type:y mandatory;scroll-padding-top:0;}
       </a>
     </div>
   </div>
-  <footer class="footer">
-    <div class="wrap footer-top">
-      <div class="f-brand"><div class="ft"><div class="nm">홍왕기 <span>Hong Wang Ki</span></div><div class="tl">안정적인 서버를 설계하는 백엔드 개발자</div></div></div>
-      <div class="f-social">
-        <a class="f-soc" href="https://github.com/hongwangki" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg></a>
-        <a class="f-soc" href="https://leejd8130.tistory.com" target="_blank" rel="noopener" aria-label="Blog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></a>
-        <a class="f-soc" href="mailto:leejd8130@naver.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2.5"/><path d="m3 6 9 6 9-6"/></svg></a>
-      </div>
-    </div>
-    <div class="wrap footer-bottom">
-      <span>© 2026 Hong Wang Ki — Backend Developer Portfolio</span>
-      <a href="#top">맨 위로 ↑</a>
-    </div>
-  </footer>
 </section>
 
 <div class="lightbox" id="lightbox">

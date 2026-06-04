@@ -71,7 +71,12 @@
       "Bash(python3 /tmp/shot.py /tmp/dfin)",
       "Bash(python3 /tmp/wheel.py)",
       "Bash(python3 /tmp/shot.py /tmp/dsvc)",
-      "Bash(python3 /tmp/shot.py /tmp/dsvc2)"
+      "Bash(python3 /tmp/shot.py /tmp/dsvc2)",
+      "Bash(npx --no-install playwright --version)",
+      "Bash(/home/leejd8130/.cache/ms-playwright/chromium-1223/chrome-linux64/chrome --headless --no-sandbox --disable-gpu --hide-scrollbars --window-size=1440,2400 --screenshot=/tmp/drone_full.png --virtual-time-budget=4000 file:///mnt/d/Portfolio/hongwangki.github.io/html/drone.html)",
+      "Bash(/home/leejd8130/.cache/ms-playwright/chromium-1223/chrome-linux64/chrome --headless --no-sandbox --disable-gpu --hide-scrollbars --window-size=1440,900 --screenshot=/tmp/drone_hero2.png --virtual-time-budget=4000 file:///mnt/d/Portfolio/hongwangki.github.io/html/drone.html)",
+      "Bash(/home/leejd8130/.cache/ms-playwright/chromium-1223/chrome-linux64/chrome --headless --no-sandbox --disable-gpu --hide-scrollbars --window-size=1440,900 --screenshot=/tmp/teenple_hero.png --virtual-time-budget=4000 file:///mnt/d/Portfolio/hongwangki.github.io/html/teenple.html)",
+      "Bash(/home/leejd8130/.cache/ms-playwright/chromium-1223/chrome-linux64/chrome --headless --no-sandbox --disable-gpu --hide-scrollbars --window-size=1440,900 --screenshot=/tmp/drone_hero3.png --virtual-time-budget=4000 file:///mnt/d/Portfolio/hongwangki.github.io/html/drone.html)"
     ]
   }
 }
